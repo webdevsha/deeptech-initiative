@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Novus | Mapping Civilizational Technology Futures</title>
+    
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description" content="Atlas Novus creates new cartographies for deep-tech development in ASEAN, mapping sovereignty pathways, cultural-economic fit, and epistemic foundations for frontier innovation.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Atlas Novus | Mapping Civilizational Technology Futures">
+    <meta property="og:description" content="New cartographies for deep-tech development in ASEAN. Where market realities meet frontier innovation.">
+    <meta property="og:image" content="https://ik.imagekit.io/cbctech/Black%20and%20White%20Simple%20Minimalist%20Futuristic%20Gaming%20YouTube%20Banner.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Atlas Novus | Mapping Civilizational Technology Futures">
+    <meta name="twitter:description" content="New cartographies for deep-tech development in ASEAN. Where market realities meet frontier innovation.">
+    <meta name="twitter:image" content="https://ik.imagekit.io/cbctech/Black%20and%20White%20Simple%20Minimalist%20Futuristic%20Gaming%20YouTube%20Banner.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://ik.imagekit.io/cbctech/Pink%20Minimal%20Beauty%20Organic%20Cosmetics%20Circle%20Logo%20(1).png" type="image/png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons (Clean, Apple-like icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Google Fonts: Inter (San Francisco alternative) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apple-esque Design System overrides */
+        :root {
+            --bg-body: #F5F5F7;
+            --bg-card: #FFFFFF;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --accent-blue: #0071E3;
+            --accent-dark: #000000;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Smooth Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Frosted Glass Nav */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Bento Grid Card Hover */
+        .bento-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8; 
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="#" class="text-xl font-semibold tracking-tight flex items-center gap-2">
+                <i class="ph ph-globe-hemisphere-east text-2xl"></i>
+                Atlas Novus
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                <a href="#approach" class="hover:text-black transition-colors">The Framework</a>
+                <a href="#projects" class="hover:text-black transition-colors">Projects</a>
+                <a href="#about" class="hover:text-black transition-colors">Team</a>
+            </div>
+            <a href="#workshop" class="bg-black text-white text-xs px-4 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                Jan 30 Workshop
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 flex flex-col items-center text-center max-w-5xl mx-auto">
+        <div class="reveal">
+            <h2 class="text-[#F56300] font-semibold text-sm md:text-base mb-4 tracking-wide uppercase">Deep-Tech in ASEAN</h2>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[1.05] text-black mb-6">
+                Mapping civilizational<br>technology futures.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed mb-10">
+                We create new cartographies for deep-tech development—where ASEAN's market realities meet frontier innovation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#workshop" class="bg-[#0071E3] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#0077ED] transition-colors shadow-lg shadow-blue-500/30">
+                    Reserve Your Seat
+                </a>
+                <a href="#problem" class="bg-white text-black border border-gray-200 px-8 py-4 rounded-full text-lg font-medium hover:border-gray-400 transition-colors">
+                    Learn more
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem Section (Dark Mode Transition) -->
+    <section id="problem" class="bg-black text-white py-24 px-6 rounded-t-[40px] md:rounded-[60px] mx-2 md:mx-4 shadow-2xl relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h3 class="text-3xl md:text-5xl font-semibold tracking-tight mb-6">Why deep-tech fails in ASEAN.</h3>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                    Most frameworks are built for Silicon Valley dynamics: abundant VC, mature regulations, and high consumer adoption. 
+                </p>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <i class="ph ph-x-circle text-red-500 text-2xl mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-white">The Western Playbook</h4>
+                            <p class="text-gray-500 text-sm">Assumes open capital markets and fast consumer uptake.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <i class="ph ph-check-circle text-green-500 text-2xl mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-white">The ASEAN Reality</h4>
+                            <p class="text-gray-500 text-sm">Driven by government procurement, sovereignty concerns, and institutional partnerships.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 reveal delay-100">
+                <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4">Case Study: Space-Tech</h4>
+                <div class="space-y-4">
+                    <div class="p-4 bg-gray-800 rounded-xl">
+                        <div class="text-gray-400 text-xs mb-1">Western Model</div>
+                        <div class="font-medium">Military contracts & Open Capital Markets</div>
+                    </div>
+                    <div class="flex justify-center text-gray-600">
+                        <i class="ph ph-arrow-down"></i>
+                    </div>
+                    <div class="p-4 bg-[#1c1c1e] border border-red-900/50 rounded-xl">
+                        <div class="text-red-400 text-xs mb-1">Result in ASEAN</div>
+                        <div class="font-medium text-red-200">The "Valley of Death"</div>
+                    </div>
+                    <div class="flex justify-center text-gray-600">
+                        <i class="ph ph-arrows-merge"></i>
+                    </div>
+                    <div class="p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
+                        <div class="text-blue-400 text-xs mb-1">Atlas Novus Path</div>
+                        <div class="font-medium text-blue-100">Sovereign Development & Regional Infra</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach (Bento Grid) -->
+    <section id="approach" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-4xl md:text-5xl font-semibold text-black tracking-tight mb-4">The Atlas Novus Framework</h2>
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto">Not cultural adaptation. A fundamentally different cartography.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[500px]">
+            <!-- Card 1 -->
+            <div class="bento-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between reveal delay-100">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-6">
+                    <i class="ph ph-bank text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Sovereignty Pathways</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        How technologies build institutional capacity. Where does this innovation position your nation in global value chains?
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2 (Featured) -->
+            <div class="bento-card bg-[#F5F5F7] p-8 rounded-3xl shadow-sm flex flex-col justify-center items-center text-center reveal border border-gray-200 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-50"></div>
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl mx-auto flex items-center justify-center text-white mb-6 shadow-xl shadow-blue-500/20">
+                        <i class="ph ph-users-three text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2">Cultural-Economic Fit</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed max-w-xs mx-auto">
+                        Aligning innovations with governance traditions and social systems. What business models actually work here?
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bento-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between reveal delay-200">
+                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 mb-6">
+                    <i class="ph ph-brain text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Epistemic Foundations</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        What assumptions about value are encoded in your tech? Are you solving the right problem for this context?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshop Section (The Core Offering) -->
+    <section id="workshop" class="py-24 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-6 reveal">
+                <span class="bg-black text-white text-xs font-bold px-2 py-1 rounded">JAN 30</span>
+                <span class="text-gray-500 text-sm uppercase tracking-wider font-medium">Workshop</span>
+            </div>
+            
+            <h2 class="text-4xl md:text-6xl font-semibold text-black tracking-tight mb-6 reveal">
+                Space-Tech Commercialization: <br>
+                <span class="text-gray-400">Mapping Deep-Tech to Market in ASEAN</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12 border-b border-gray-200 pb-12">
+                <div class="col-span-2 reveal">
+                    <h4 class="text-xl font-semibold mb-4">What you'll learn</h4>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3">
+                            <i class="ph ph-check text-blue-600 mt-1"></i>
+                            <span class="text-gray-600"><strong>The Atlas Novus Framework:</strong> A 3D mapping system for sovereignty, culture, and epistemology.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="ph ph-check text-blue-600 mt-1"></i>
+                            <span class="text-gray-600"><strong>Live Case Study:</strong> Real breakdown of space-tech commercialization in Malaysia-ASEAN.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="ph ph-check text-blue-600 mt-1"></i>
+                            <span class="text-gray-600"><strong>Immediate Application:</strong> Complete a canvas for your specific technology domain.</span>
+                        </li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold mt-10 mb-4">The Agenda</h4>
+                    <div class="pl-4 border-l-2 border-gray-200 space-y-6">
+                        <div>
+                            <div class="text-sm font-bold text-gray-900">Part 1: Framework</div>
+                            <div class="text-sm text-gray-500">Why Western models fail & how to read the canvas.</div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-900">Part 2: Case Study</div>
+                            <div class="text-sm text-gray-500">Mapping sovereignty pathways in space-tech.</div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-900">Part 3: Application</div>
+                            <div class="text-sm text-gray-500">Map your own tech with peer feedback.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#F5F5F7] p-8 rounded-3xl h-fit reveal delay-100">
+                    <div class="text-3xl font-bold text-black mb-1">RM500</div>
+                    <div class="text-sm text-gray-500 mb-6">Limited to 10 participants</div>
+                    
+                    <a href="mailto:hello@atlasnovus.co?subject=Reserve Seat - Jan 30 Workshop" class="block w-full bg-[#0071E3] text-white text-center py-3 rounded-xl font-medium hover:bg-[#0077ED] transition-colors mb-4">
+                        Secure Your Seat
+                    </a>
+                    
+                    <div class="text-xs text-gray-500 space-y-2">
+                        <div class="flex items-center gap-2"><i class="ph ph-calendar"></i> Thu, Jan 30, 2026</div>
+                        <div class="flex items-center gap-2"><i class="ph ph-clock"></i> 2:00 PM - 5:00 PM</div>
+                        <div class="flex items-center gap-2"><i class="ph ph-map-pin"></i> Petaling Jaya / Hybrid</div>
+                        <div class="flex items-center gap-2"><i class="ph ph-translate"></i> English (BM materials)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                <div>
+                    <h5 class="font-semibold mb-2 text-sm uppercase text-gray-400">Ideal For</h5>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>Future deep-tech founders (Space, AI, Bio)</li>
+                        <li>Academic leaders translating R&D</li>
+                        <li>Innovation strategists in Gov/Corp</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-2 text-sm uppercase text-gray-400">Included</h5>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>Physical & Digital Canvas Tools</li>
+                        <li>Personalized Technology Roadmap (1-page)</li>
+                        <li>Access to Research Network</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="about" class="py-24 px-6 bg-[#F5F5F7]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-semibold mb-12 text-center reveal">Who We Are</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Shafira -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">SV</div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Shafira Verdas</h3>
+                            <p class="text-sm text-gray-500">Co-Founder, Atlas Novus | Cetalabs</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        AI safety researcher (AI Safety Camp certified) and compute governance specialist. Former Malaysian policy fellow. Published on technology governance frameworks for ASEAN contexts.
+                    </p>
+                </div>
+
+                <!-- R -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm reveal delay-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">R</div>
+                        <div>
+                            <h3 class="font-semibold text-lg">R [Last Name]</h3>
+                            <p class="text-sm text-gray-500">Co-Founder, Atlas Novus | Aphelia</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Deep-tech entrepreneur building space-based wireless energy systems. Strategic foresight for Khazanah Megatrends Forum and Petronas Research.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects / Work -->
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-semibold mb-12 reveal">Current Work & Offerings</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="reveal">
+                <h4 class="font-semibold text-lg mb-2 text-blue-600">Cetalabs</h4>
+                <p class="text-sm text-gray-600">Developing compute governance frameworks for ASEAN. Building participatory AI safety education programs that create commercial ecosystems.</p>
+            </div>
+            <div class="reveal delay-100">
+                <h4 class="font-semibold text-lg mb-2 text-blue-600">Aphelia</h4>
+                <p class="text-sm text-gray-600">Building space-based wireless energy systems. Navigating deep-tech commercialization in sovereignty-conscious markets.</p>
+            </div>
+            <div class="reveal delay-200">
+                <h4 class="font-semibold text-lg mb-2 text-blue-600">Strategic Advisory</h4>
+                <p class="text-sm text-gray-600">For deep-tech ventures and government agencies seeking indigenous frameworks for technology governance and market entry.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer class="bg-black text-white pt-24 pb-12 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-semibold mb-6">Join the Founding Cohort.</h2>
+            <p class="text-gray-400 mb-8 max-w-lg mx-auto">Atlas Novus is in beta launch. Workshop participants shape our research agenda.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-4 mb-16">
+                 <a href="#workshop" class="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors">
+                    Register for Workshop
+                </a>
+                <a href="mailto:hello@atlasnovus.co" class="border border-gray-700 text-white px-6 py-3 rounded-full font-medium hover:border-gray-500 transition-colors">
+                    Contact Us
+                </a>
+            </div>
+
+            <div class="border-t border-gray-800 pt-12 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <p>&copy; 2026 Atlas Novus. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Reveal Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            // Trigger once on load
+            revealOnScroll();
+        });
+    </script>
+</body>
+</html>
