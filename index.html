@@ -670,13 +670,18 @@
                     <div class="space-y-3">
                         <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Order Summary</label>
                         
-                        <!-- Workshop (Base) -->
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-xl border border-gray-100">
-                            <div>
-                                <div class="font-medium text-black">Workshop: Space-Tech ASEAN</div>
-                                <div class="text-xs text-gray-500">Jan 30th • 1 Seat</div>
-                            </div>
-                            <div class="font-semibold">RM 500</div>
+                        <!-- Workshop (Base) - Now a Checkbox for customization/testing -->
+                        <div class="relative p-3 bg-white rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" id="workshopCheckbox" class="mt-1 w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500" checked onchange="updateTotal()">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center">
+                                        <div class="font-medium text-sm text-gray-900">Workshop: Space-Tech ASEAN</div>
+                                        <div class="font-semibold text-sm text-gray-700">RM 500</div>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Jan 31st • 1 Seat</p>
+                                </div>
+                            </label>
                         </div>
 
                         <!-- Add-on: Consultation -->
@@ -693,7 +698,7 @@
                             </label>
                         </div>
 
-                        <!-- Add-on: Tech Review (NEW) -->
+                        <!-- Add-on: Tech Review -->
                         <div class="relative p-3 bg-white rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
                             <label class="flex items-center gap-3 cursor-pointer">
                                 <input type="checkbox" id="techReviewCheckbox" class="mt-1 w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500" onchange="updateTotal()">
@@ -706,6 +711,26 @@
                                 </div>
                             </label>
                         </div>
+
+                        <!-- Add-on: System Test (New) -->
+                        <div class="relative p-3 bg-gray-50 rounded-xl border border-dashed border-gray-300 cursor-pointer hover:bg-gray-100 transition-colors">
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" id="testCheckbox" class="mt-1 w-4 h-4 text-gray-500 rounded border-gray-300 focus:ring-gray-500" onchange="updateTotal()">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center">
+                                        <div class="font-medium text-sm text-gray-600">System Integration Test</div>
+                                        <div class="font-semibold text-sm text-gray-600">+ RM 2</div>
+                                    </div>
+                                    <p class="text-xs text-gray-400">For payment gateway validation only.</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Transaction Fee (Hidden unless total > 10) -->
+                    <div id="feeRow" class="hidden flex justify-between items-center px-2 text-xs text-gray-500">
+                        <span>Processing Fee</span>
+                        <span>RM 2.00</span>
                     </div>
 
                     <!-- Total -->
@@ -805,24 +830,27 @@
             };
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
+            
+            // Initial Total Calc
+            updateTotal();
         });
 
         // --- 2. Variables & Constants ---
         const modal = document.getElementById('paymentModal');
         const totalDisplay = document.getElementById('totalDisplay');
+        const workshopCheckbox = document.getElementById('workshopCheckbox');
         const consultCheckbox = document.getElementById('consultCheckbox');
         const techReviewCheckbox = document.getElementById('techReviewCheckbox');
+        const testCheckbox = document.getElementById('testCheckbox');
+        const feeRow = document.getElementById('feeRow');
         
         let totalAmount = 500;
         let paymentMethod = 'chip'; // Default to Chip
 
-        // API KEYS (Sensitive - Move to Backend for Production)
-        // Cloudflare Worker URL (Updated with https://)
+        // API KEYS
         const CLOUDFLARE_WORKER_URL = "https://flat-haze-25a0.shalomshafa.workers.dev";
-        const CHIP_BRAND_ID = "9dd18261-e178-43a2-8e66-c175e92bfaca"; // REQUIRED: Replace with Brand ID from Chip Dashboard
-        
+        const CHIP_BRAND_ID = "9dd18261-e178-43a2-8e66-c175e92bfaca"; 
         const SENDER_EMAIL = "hai@shafiranoh.com"; 
-        const SENDER_NAME = "Shafira Noh";
         const ADMIN_EMAIL = "hai@shafiranoh.com";
 
         // --- 3. Modal & UI Logic ---
@@ -839,9 +867,19 @@
         }
 
         function updateTotal() {
-            let sum = 500; // Base Workshop Price
+            let sum = 0;
+            if (workshopCheckbox.checked) sum += 500;
             if (consultCheckbox.checked) sum += 1000;
             if (techReviewCheckbox.checked) sum += 1000;
+            if (testCheckbox.checked) sum += 2;
+            
+            // Transaction Fee Logic: Add RM 2 if total > RM 10
+            if (sum > 10) {
+                sum += 2;
+                feeRow.classList.remove('hidden');
+            } else {
+                feeRow.classList.add('hidden');
+            }
             
             totalAmount = sum;
             totalDisplay.innerText = `RM ${totalAmount}`;
@@ -897,12 +935,39 @@
         // --- 5. Chip Payment Logic (via Cloudflare Worker) ---
         async function processChipPayment(form, btn) {
             const formData = new FormData(form);
-            const status = document.getElementById('statusMessage');
+            
+            // Construct Product List dynamically
+            const products = [];
+            let currentSubtotal = 0;
 
-            // Construct Product List for Chip
-            const products = [{ name: "Workshop Seat", price: 50000, quantity: 1 }]; // price in cents
-            if (consultCheckbox.checked) products.push({ name: "Personal Consultation", price: 100000, quantity: 1 });
-            if (techReviewCheckbox.checked) products.push({ name: "Tech Doc Review", price: 100000, quantity: 1 });
+            if (workshopCheckbox.checked) {
+                products.push({ name: "Workshop Seat", price: 50000, quantity: 1 }); // 500.00
+                currentSubtotal += 500;
+            }
+            if (consultCheckbox.checked) {
+                products.push({ name: "Personal Consultation", price: 100000, quantity: 1 }); // 1000.00
+                currentSubtotal += 1000;
+            }
+            if (techReviewCheckbox.checked) {
+                products.push({ name: "Tech Doc Review", price: 100000, quantity: 1 }); // 1000.00
+                currentSubtotal += 1000;
+            }
+            if (testCheckbox.checked) {
+                products.push({ name: "System Integration Test", price: 200, quantity: 1 }); // 2.00
+                currentSubtotal += 2;
+            }
+
+            // Apply Fee logic to payload
+            if (currentSubtotal > 10) {
+                products.push({ name: "Processing Fee", price: 200, quantity: 1 }); // 2.00
+            }
+
+            if (products.length === 0) {
+                btn.innerHTML = 'Select an Item';
+                btn.disabled = false;
+                alert("Please select at least one item.");
+                return;
+            }
 
             const payload = {
                 action: 'create_payment', // Flag for Worker
@@ -940,6 +1005,7 @@
                 console.error("Payment Error:", error);
                 btn.innerHTML = 'Try Again';
                 btn.disabled = false;
+                const status = document.getElementById('statusMessage');
                 status.innerText = "Payment initialization failed. Please try manual transfer.";
                 status.classList.add('text-red-500');
             }
@@ -952,9 +1018,23 @@
             const file = document.getElementById('receiptFile').files[0];
             
             // Generate Description String
-            let items = ["Workshop Seat"];
-            if (consultCheckbox.checked) items.push("Personal Consultation");
-            if (techReviewCheckbox.checked) items.push("Tech Doc Review");
+            let items = [];
+            let currentSubtotal = 0;
+
+            if (workshopCheckbox.checked) { items.push("Workshop Seat"); currentSubtotal += 500; }
+            if (consultCheckbox.checked) { items.push("Personal Consultation"); currentSubtotal += 1000; }
+            if (techReviewCheckbox.checked) { items.push("Tech Doc Review"); currentSubtotal += 1000; }
+            if (testCheckbox.checked) { items.push("System Integration Test"); currentSubtotal += 2; }
+            
+            if (currentSubtotal > 10) items.push("Processing Fee (RM 2)");
+
+            if (items.length === 0) {
+                btn.innerHTML = 'Select an Item';
+                btn.disabled = false;
+                alert("Please select at least one item.");
+                return;
+            }
+
             const itemsPurchased = items.join(", ");
 
             // Helper to send data to worker
@@ -967,7 +1047,6 @@
                     items_purchased: itemsPurchased,
                     file_name: fileName,
                     file_content: cleanBase64,
-                    // Pass these explicitly to override Worker env vars if needed
                     sender_email: SENDER_EMAIL,
                     admin_email: ADMIN_EMAIL
                 };
@@ -1007,10 +1086,8 @@
                 }
             };
 
-            // Read File
             if (file) {
-                // Check file size (client-side validation)
-                if (file.size > 2 * 1024 * 1024) { // 2MB limit
+                if (file.size > 2 * 1024 * 1024) { 
                     btn.innerHTML = 'File Too Large';
                     btn.disabled = false;
                     status.innerText = "File is too large. Please upload a receipt under 2MB.";
@@ -1020,7 +1097,6 @@
 
                 const reader = new FileReader();
                 reader.onload = () => {
-                    // Extract clean base64 (remove "data:image/png;base64,")
                     const cleanBase64 = reader.result.split(',')[1];
                     sendToWorker(cleanBase64, file.name);
                 };
