@@ -777,6 +777,8 @@
             if (techReviewCheckbox.checked) products.push({ name: "Tech Doc Review", price: 100000, quantity: 1 });
 
             // Payload sent to Worker
+            // UPDATED: Removed *_callback URLs. GitHub Pages returns 405 on POST webhooks, 
+            // which stops Chip from executing the redirect. We only use *_redirect now.
             const payload = {
                 brand_id: CHIP_BRAND_ID,
                 client: {
@@ -789,10 +791,8 @@
                     products: products,
                     timezone: "Asia/Kuala_Lumpur"
                 },
-                success_callback: "https://webdevsha.github.io/atlas/success.html",
                 success_redirect: "https://webdevsha.github.io/atlas/success.html",
-                error_callback: "https://webdevsha.github.io/atlas/fail.html",
-                failure_redirect: "https://webdevsha.github.io/atlas/fail.html"
+                failure_redirect: "https://webdevsha.github.io/atlas/failed.html"
             };
 
             try {
