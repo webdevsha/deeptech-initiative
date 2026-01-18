@@ -776,10 +776,8 @@
             if (consultCheckbox.checked) products.push({ name: "Personal Consultation", price: 100000, quantity: 1 });
             if (techReviewCheckbox.checked) products.push({ name: "Tech Doc Review", price: 100000, quantity: 1 });
 
-            // Payload sent to Worker
-            // UPDATED: Removed *_callback URLs. GitHub Pages returns 405 on POST webhooks, 
-            // which stops Chip from executing the redirect. We only use *_redirect now.
             const payload = {
+                action: 'create_payment', // Flag for Worker
                 brand_id: CHIP_BRAND_ID,
                 client: {
                     email: formData.get('user_email'),
@@ -798,9 +796,7 @@
             try {
                 const response = await fetch(CLOUDFLARE_WORKER_URL, {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
                 });
 
@@ -816,17 +812,15 @@
                 console.error("Payment Error:", error);
                 btn.innerHTML = 'Try Again';
                 btn.disabled = false;
-                status.innerText = "Payment initialization failed. Please try manual transfer or check Brand ID.";
+                status.innerText = "Payment initialization failed. Please try manual transfer.";
                 status.classList.add('text-red-500');
             }
         }
 
-        // --- 6. Manual Payment (Brevo) Logic ---
+        // --- 6. Manual Payment (via Cloudflare Worker -> Brevo) ---
         async function processManualPayment(form, btn) {
             const formData = new FormData(form);
             const status = document.getElementById('statusMessage');
-            const userName = formData.get('user_name');
-            const userEmail = formData.get('user_email');
             const file = document.getElementById('receiptFile').files[0];
             
             // Generate Description String
@@ -835,46 +829,29 @@
             if (techReviewCheckbox.checked) items.push("Tech Doc Review");
             const itemsPurchased = items.join(", ");
 
-            const sendBrevoEmail = async (base64Attachment = null) => {
+            // Helper to send data to worker
+            const sendToWorker = async (cleanBase64 = null, fileName = null) => {
+                const payload = {
+                    action: 'send_email', // Flag for Worker
+                    user_name: formData.get('user_name'),
+                    user_email: formData.get('user_email'),
+                    total_amount: `RM ${totalAmount}`,
+                    items_purchased: itemsPurchased,
+                    file_name: fileName,
+                    file_content: cleanBase64
+                };
+
                 try {
-                    const emailBody = {
-                        sender: { name: SENDER_NAME, email: SENDER_EMAIL },
-                        to: [
-                            { email: userEmail, name: userName },
-                            { email: ADMIN_EMAIL, name: "Admin" }
-                        ],
-                        subject: "Workshop Registration Confirmation - Atlas Novus",
-                        htmlContent: `
-                            <html><body>
-                                <h2>Payment Receipt Received</h2>
-                                <p>Hi ${userName},</p>
-                                <p>Thank you for your payment of <strong>RM ${totalAmount}</strong> for <strong>${itemsPurchased}</strong>.</p>
-                                <p>We have received your receipt and will confirm your seat within 24 hours.</p>
-                                <br>
-                                <p>Atlas Novus Team</p>
-                            </body></html>
-                        `
-                    };
-
-                    if (base64Attachment && file) {
-                        const content = base64Attachment.split(',')[1];
-                        emailBody.attachment = [{ name: file.name, content: content }];
-                    }
-
-                    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+                    const response = await fetch(CLOUDFLARE_WORKER_URL, {
                         method: "POST",
-                        headers: {
-                            "accept": "application/json",
-                            "api-key": BREVO_API_KEY,
-                            "content-type": "application/json"
-                        },
-                        body: JSON.stringify(emailBody)
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload)
                     });
 
                     if (response.ok) {
                         btn.innerHTML = '<i class="ph ph-check"></i> Success!';
                         btn.classList.replace('bg-[#0071E3]', 'bg-green-600');
-                        status.innerText = "Receipt received. Check your email.";
+                        status.innerText = "Receipt received. Confirmation sent to your email.";
                         status.classList.add('text-green-600');
                         setTimeout(() => {
                             closeModal();
@@ -886,24 +863,29 @@
                             status.innerText = "";
                         }, 3000);
                     } else {
-                        throw new Error("Email failed");
+                        throw new Error("Email worker failed");
                     }
                 } catch (error) {
                     console.error('Email Error:', error);
                     btn.innerHTML = 'Try Again';
                     btn.disabled = false;
-                    status.innerText = "Error sending receipt. File might be too large.";
+                    status.innerText = "Error sending receipt. Ensure file is < 2MB.";
                     status.classList.add('text-red-500');
                 }
             };
 
+            // Read File
             if (file) {
                 const reader = new FileReader();
-                reader.onload = () => sendBrevoEmail(reader.result);
-                reader.onerror = () => sendBrevoEmail(null);
+                reader.onload = () => {
+                    // Extract clean base64 (remove "data:image/png;base64,")
+                    const cleanBase64 = reader.result.split(',')[1];
+                    sendToWorker(cleanBase64, file.name);
+                };
+                reader.onerror = () => sendToWorker(null, null);
                 reader.readAsDataURL(file);
             } else {
-                sendBrevoEmail(null);
+                sendToWorker(null, null);
             }
         }
     </script>
