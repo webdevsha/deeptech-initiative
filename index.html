@@ -688,7 +688,6 @@
         let paymentMethod = 'chip'; // Default to Chip
 
         // API KEYS (Sensitive - Move to Backend for Production)
-        const BREVO_API_KEY = "xkeysib-YOUR-ACTUAL-API-KEY-HERE"; 
         // Cloudflare Worker URL (Updated with https://)
         const CLOUDFLARE_WORKER_URL = "https://flat-haze-25a0.shalomshafa.workers.dev";
         const CHIP_BRAND_ID = "9dd18261-e178-43a2-8e66-c175e92bfaca"; // REQUIRED: Replace with Brand ID from Chip Dashboard
@@ -838,7 +837,10 @@
                     total_amount: `RM ${totalAmount}`,
                     items_purchased: itemsPurchased,
                     file_name: fileName,
-                    file_content: cleanBase64
+                    file_content: cleanBase64,
+                    // Pass these explicitly to override Worker env vars if needed
+                    sender_email: SENDER_EMAIL,
+                    admin_email: ADMIN_EMAIL
                 };
 
                 try {
@@ -863,7 +865,9 @@
                             status.innerText = "";
                         }, 3000);
                     } else {
-                        throw new Error("Email worker failed");
+                        const errorData = await response.json();
+                        console.error("Worker Response Error:", errorData);
+                        throw new Error(errorData.error || "Email worker failed");
                     }
                 } catch (error) {
                     console.error('Email Error:', error);
@@ -876,6 +880,15 @@
 
             // Read File
             if (file) {
+                // Check file size (client-side validation)
+                if (file.size > 2 * 1024 * 1024) { // 2MB limit
+                    btn.innerHTML = 'File Too Large';
+                    btn.disabled = false;
+                    status.innerText = "File is too large. Please upload a receipt under 2MB.";
+                    status.classList.add('text-red-500');
+                    return;
+                }
+
                 const reader = new FileReader();
                 reader.onload = () => {
                     // Extract clean base64 (remove "data:image/png;base64,")
