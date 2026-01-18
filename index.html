@@ -139,13 +139,12 @@
             </a>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
                 <a href="#approach" class="hover:text-black transition-colors">The Framework</a>
-                <a href="#verticals" class="hover:text-black transition-colors">Frontiers</a>
-                <a href="#projects" class="hover:text-black transition-colors">Projects</a>
-                <a href="#about" class="hover:text-black transition-colors">Team</a>
+                <a href="#services" class="hover:text-black transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-black transition-colors">Portfolio</a>
             </div>
-            <button onclick="openModal()" class="bg-black text-white text-xs px-4 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors">
-                Jan 30 Workshop
-            </button>
+            <a href="#workshop" class="bg-black text-white text-xs px-4 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                Jan 31 Workshop
+            </a>
         </div>
     </nav>
 
@@ -160,11 +159,12 @@
                 We create new strategic roadmaps for deep-tech development—where ASEAN's market realities meet frontier innovation.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="openModal()" class="bg-[#0071E3] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#0077ED] transition-colors shadow-lg shadow-blue-500/30">
+                <!-- Directs to Workshop Section for Context before Purchase -->
+                <a href="#workshop" class="bg-[#0071E3] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#0077ED] transition-colors shadow-lg shadow-blue-500/30">
                     Reserve Your Seat
-                </button>
-                <a href="#problem" class="bg-white text-black border border-gray-200 px-8 py-4 rounded-full text-lg font-medium hover:border-gray-400 transition-colors">
-                    Learn more
+                </a>
+                <a href="#services" class="bg-white text-black border border-gray-200 px-8 py-4 rounded-full text-lg font-medium hover:border-gray-400 transition-colors">
+                    Our Services
                 </a>
             </div>
         </div>
@@ -215,15 +215,14 @@
                     </div>
                     <div class="p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
                         <div class="text-blue-400 text-xs mb-1">Atlas Novus Path</div>
-                        <div class="font-medium text-blue-100">Strategic MVP & market development strategy
-</div>
+                        <div class="font-medium text-blue-100">Strategic MVP & market development strategy</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Approach -->
+    <!-- Our Approach (Bento Grid) -->
     <section id="approach" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16 reveal">
             <h2 class="text-4xl md:text-5xl font-semibold text-black tracking-tight mb-4">The Atlas Novus Framework</h2>
@@ -231,43 +230,42 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[500px]">
-            <!-- Card 1 -->
-            <div class="bento-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between reveal delay-100">
-                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-6">
-                    <i class="ph ph-bank text-2xl"></i>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-2">Strategic MVP development decisions</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Which subsystems of the ideal MVP needs to be prioritised given limited funding?
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 2 (Featured) -->
-            <div class="bento-card bg-[#F5F5F7] p-8 rounded-3xl shadow-sm flex flex-col justify-center items-center text-center reveal border border-gray-200 relative overflow-hidden">
+            <!-- Card 1 (Moonshot - Featured Style) -->
+            <div class="bento-card bg-[#F5F5F7] p-8 rounded-3xl shadow-sm flex flex-col justify-center text-left reveal border border-gray-200 relative overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-50"></div>
                 <div class="relative z-10">
-                    <div class="w-16 h-16 bg-blue-600 rounded-2xl mx-auto flex items-center justify-center text-white mb-6 shadow-xl shadow-blue-500/20">
-                        <i class="ph ph-users-three text-3xl"></i>
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-xl shadow-blue-500/20">
+                        <i class="ph ph-rocket-launch text-3xl"></i>
                     </div>
                     <h3 class="text-2xl font-semibold mb-2">Moonshot with Near-Term Strategy</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed max-w-xs mx-auto">
-What’s the thesis around the Moonshot vision (economic, social, geopolitics, etc.), and what are the near-term products towards the Moonshot?
-
+                    <p class="text-gray-600 text-sm leading-relaxed max-w-sm">
+                        What’s the thesis around the Moonshot vision (economic, social, geopolitics), and what are the near-term products towards that future?
                     </p>
                 </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="bento-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between reveal delay-200">
+            <!-- Card 2 (MVP) -->
+            <div class="bento-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between text-left reveal delay-100">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-6">
+                    <i class="ph ph-strategy text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Strategic MVP Development</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Which subsystems of the ideal MVP need to be prioritised given limited funding? We map the critical path to viability.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3 (Systems Thinking) -->
+            <div class="bento-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between text-left reveal delay-200">
                 <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 mb-6">
                     <i class="ph ph-brain text-2xl"></i>
                 </div>
                 <div>
                     <h3 class="text-2xl font-semibold mb-2">Systems Thinking</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        How to address complicated yet connected aspects that have to be considered (tech moat, regulation, customer, economics) early on, effectively?
+                        How to address complicated yet connected aspects—tech moat, regulation, customer, economics—early on, effectively?
                     </p>
                 </div>
             </div>
@@ -282,8 +280,8 @@ What’s the thesis around the Moonshot vision (economic, social, geopolitics, e
                 <p class="text-gray-500 max-w-xl">Architecting futures where civilizational needs meet deep-tech capability.</p>
             </div>
             <div class="hidden md:block">
-                <a href="#projects" class="text-sm font-medium text-[#0071E3] hover:underline flex items-center gap-1">
-                    View our research <i class="ph ph-arrow-right"></i>
+                <a href="#portfolio" class="text-sm font-medium text-[#0071E3] hover:underline flex items-center gap-1">
+                    View our portfolio <i class="ph ph-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -349,6 +347,94 @@ What’s the thesis around the Moonshot vision (economic, social, geopolitics, e
                     <p class="text-gray-300 text-sm">
                         Mapping supply chains for critical electronics and advanced materials to ensure regional technological autonomy.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (New) -->
+    <section id="services" class="py-24 px-6 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-semibold mb-16 text-center reveal">Core Capabilities</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Service 1 -->
+                <div class="reveal">
+                    <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
+                        <i class="ph ph-telescope text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Deep-Tech Research</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Rigorous foresight and analysis on emerging technologies. We decode complex geopolitical and technological trends to provide actionable intelligence for sovereignty-conscious organizations.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="reveal delay-200">
+                    <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
+                        <i class="ph ph-chats-circle text-2xl text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Strategic Consultation</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        High-level advisory for founders and policymakers. We navigate the "Valley of Death" through institutional partnership strategies, regulatory alignment, and market entry roadmaps.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="reveal delay-100">
+                    <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
+                        <i class="ph ph-gear text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Productized Services Development</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Transforming R&D into repeatable value engines. We help labs and institutes package complex IP into scalable, market-ready service products that generate sustainable revenue.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (Formerly Projects) -->
+    <section id="portfolio" class="py-24 px-6 max-w-7xl mx-auto border-t border-gray-200">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+            <h2 class="text-3xl font-semibold">Portfolio & Selected Works</h2>
+            <p class="text-gray-500 text-sm mt-4 md:mt-0">Real-world application of the Atlas Novus framework.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-md transition-shadow reveal">
+                <div class="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">Venture Building</div>
+                <h4 class="font-semibold text-lg mb-2">Aphelia Space</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    Building space-based wireless energy systems. Successfully navigated institutional partnerships to secure early pilot programs in Malaysia-ASEAN sovereignty markets.
+                </p>
+                <div class="flex gap-2">
+                    <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">Space-Tech</span>
+                    <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">Energy</span>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-md transition-shadow reveal delay-100">
+                <div class="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">Governance Research</div>
+                <h4 class="font-semibold text-lg mb-2">Cetalabs</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    Developed compute governance frameworks for ASEAN. Built participatory AI safety programs that created a commercial ecosystem for local safety researchers.
+                </p>
+                <div class="flex gap-2">
+                    <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">AI Safety</span>
+                    <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">Policy</span>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-md transition-shadow reveal delay-200">
+                <div class="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">Advisory</div>
+                <h4 class="font-semibold text-lg mb-2">National Strategic Foresight</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    Consultation for key national stakeholders including Khazanah Megatrends Forum and Petronas Research on long-term technology development pathways.
+                </p>
+                <div class="flex gap-2">
+                    <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">Strategy</span>
+                    <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">Gov-Tech</span>
                 </div>
             </div>
         </div>
@@ -445,13 +531,28 @@ What’s the thesis around the Moonshot vision (economic, social, geopolitics, e
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-semibold mb-12 text-center reveal">Who We Are</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- R -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm reveal delay-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">R</div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Razlan Dhamir Hamdan</h3>
+                            <p class="text-sm text-gray-500">CEO-CTO of Aphelia Space | Co-Founder, Atlas Novus</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Deep-tech entrepreneur building space-based wireless energy systems. Strategic foresight for Khazanah Megatrends Forum and Petronas Research.
+                    </p>
+                </div>
+                
                 <!-- Shafira -->
                 <div class="bg-white p-8 rounded-3xl shadow-sm reveal">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">SV</div>
                         <div>
-                            <h3 class="font-semibold text-lg">Shafira Verdas</h3>
-                            <p class="text-sm text-gray-500">Co-Founder, Atlas Novus | Cetalabs</p>
+                            <h3 class="font-semibold text-lg">Shafira Noh</h3>
+                            <p class="text-sm text-gray-500">Founder-CEO of Cetalabs | AI Safety researcher</p>
                         </div>
                     </div>
                     <p class="text-gray-600 text-sm leading-relaxed">
@@ -459,38 +560,6 @@ What’s the thesis around the Moonshot vision (economic, social, geopolitics, e
                     </p>
                 </div>
 
-                <!-- R -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm reveal delay-100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">R</div>
-                        <div>
-                            <h3 class="font-semibold text-lg">R [Last Name]</h3>
-                            <p class="text-sm text-gray-500">Co-Founder, Atlas Novus | Aphelia</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Deep-tech entrepreneur building space-based wireless energy systems. Strategic foresight for Khazanah Megatrends Forum and Petronas Research.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects / Work -->
-    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-semibold mb-12 reveal">Current Work & Offerings</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="reveal">
-                <h4 class="font-semibold text-lg mb-2 text-blue-600">Cetalabs</h4>
-                <p class="text-sm text-gray-600">Developing compute governance frameworks for ASEAN. Building participatory AI safety education programs that create commercial ecosystems.</p>
-            </div>
-            <div class="reveal delay-100">
-                <h4 class="font-semibold text-lg mb-2 text-blue-600">Aphelia</h4>
-                <p class="text-sm text-gray-600">Building space-based wireless energy systems. Navigating deep-tech commercialization in sovereignty-conscious markets.</p>
-            </div>
-            <div class="reveal delay-200">
-                <h4 class="font-semibold text-lg mb-2 text-blue-600">Strategic Advisory</h4>
-                <p class="text-sm text-gray-600">For deep-tech ventures and government agencies seeking indigenous frameworks for technology governance and market entry.</p>
             </div>
         </div>
     </section>
