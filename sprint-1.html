@@ -251,7 +251,7 @@
         </div>
     </section>
 
-    <!-- Success Stories (New) -->
+    <!-- Success Stories -->
     <section class="py-20 px-6 bg-white border-t border-stone-100">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl text-stone-900 mb-10 text-center">Results from the Network</h2>
@@ -352,7 +352,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h2 class="text-3xl font-serif mb-4 text-white">Get The Deeptech Strategic Toolkit</h2>
-                    <p class="text-stone-400 mb-8">This isn't just a webinar. It's a consulting intervention packaged as a sprint. You get the <strong>starter frameworks</strong> we use to diagnose Series A clients.</p>
+                    <p class="text-stone-400 mb-8">This isn't just a webinar. It's a consulting intervention packaged as a sprint. You get the <strong>starter frameworks</strong> we use to structure and validate investable deeptech ventures.</p>
                     
                     <ul class="value-list space-y-4 text-stone-300 text-sm mb-8">
                         <li class="flex justify-between">
@@ -571,24 +571,100 @@
     </div>
 
     <script>
-        // --- 1. Countdown Timer (Ends Jan 28) ---
-        const targetDate = new Date("Jan 28, 2026 11:00:00").getTime();
-        
-        setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. Countdown Timer (Ends Jan 28) ---
+            const targetDate = new Date("Jan 28, 2026 11:00:00").getTime();
             
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "CLOSED";
-                return;
+            const countdownEl = document.getElementById("countdown");
+            if(countdownEl) {
+                setInterval(function() {
+                    const now = new Date().getTime();
+                    const distance = targetDate - now;
+                    
+                    if (distance < 0) {
+                        countdownEl.innerHTML = "CLOSED";
+                        return;
+                    }
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    
+                    countdownEl.innerHTML = days + "d " + hours + "h " + minutes + "m ";
+                }, 1000);
             }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m ";
-        }, 1000);
+            // --- Forms ---
+            const sprintForm = document.getElementById('sprintForm');
+            if (sprintForm) {
+                sprintForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const btn = document.getElementById('submitBtn');
+                    const status = document.getElementById('statusMessage');
+                    
+                    btn.disabled = true;
+                    btn.innerHTML = `<i class="ph ph-spinner animate-spin"></i> Processing...`;
+
+                    if (currentMethod === 'chip') {
+                        processChip(new FormData(this), btn, status);
+                    } else {
+                        processManual(new FormData(this), btn, status);
+                    }
+                });
+            }
+
+            const leadForm = document.getElementById('leadForm');
+            if (leadForm) {
+                leadForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+                    const btn = document.getElementById('leadBtn');
+                    const status = document.getElementById('leadStatus');
+                    const emailInput = this.querySelector('input[name="lead_email"]');
+                    
+                    btn.disabled = true;
+                    btn.innerHTML = `<i class="ph ph-spinner animate-spin"></i> Sending...`;
+
+                    const payload = {
+                        action: 'send_email',
+                        user_name: "Deeptech Lead",
+                        user_email: emailInput.value,
+                        total_amount: "Free",
+                        items_purchased: "Lead Magnet: Deeptech Grant Readiness Checklist", // Key trigger string
+                        file_name: null,
+                        file_content: null,
+                        sender_email: CONFIG.SENDER,
+                        admin_email: CONFIG.ADMIN,
+                        email_subject: "Your Deeptech Grant Readiness Checklist"
+                    };
+
+                    try {
+                        const res = await fetch(CONFIG.WORKER, {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify(payload)
+                        });
+
+                        const data = await res.json(); 
+
+                        if (res.ok) {
+                            btn.innerHTML = `<i class="ph ph-check"></i> Sent!`;
+                            btn.classList.add('text-green-600', 'border-green-600');
+                            status.innerHTML = `<span class="text-green-600"><strong>Success!</strong> You've been added to the list. Check your inbox immediately.</span>`;
+                            emailInput.value = "";
+                        } else {
+                            console.error("Worker Error Details:", data);
+                            throw new Error(data.error || data.message || 'Server error');
+                        }
+                    } catch (err) {
+                        console.error("Lead Magnet Error:", err);
+                        btn.innerHTML = 'Try Again';
+                        btn.disabled = false;
+                        status.innerText = "Error sending. Please check console for details.";
+                        status.classList.add('text-red-500');
+                    }
+                });
+            }
+        });
 
         // --- 2. Payment Logic ---
         const modal = document.getElementById('paymentModal');
@@ -631,74 +707,6 @@
                 btn.innerHTML = `<span>Complete Order - RM 99</span><i class="ph ph-arrow-right"></i>`;
             }
         }
-
-        // Form Handler - Sprint Purchase
-        document.getElementById('sprintForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            const status = document.getElementById('statusMessage');
-            
-            btn.disabled = true;
-            btn.innerHTML = `<i class="ph ph-spinner animate-spin"></i> Processing...`;
-
-            if (currentMethod === 'chip') {
-                processChip(new FormData(this), btn, status);
-            } else {
-                processManual(new FormData(this), btn, status);
-            }
-        });
-
-        // Form Handler - Lead Magnet
-        document.getElementById('leadForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const btn = document.getElementById('leadBtn');
-            const status = document.getElementById('leadStatus');
-            const emailInput = this.querySelector('input[name="lead_email"]');
-            
-            const originalBtnText = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = `<i class="ph ph-spinner animate-spin"></i> Sending...`;
-
-            // Reuse Worker 'send_email' action to capture lead
-            const payload = {
-                action: 'send_email',
-                user_name: "Deeptech Lead",
-                user_email: emailInput.value,
-                total_amount: "Free",
-                items_purchased: "Deeptech Grant Readiness Checklist (Lead Magnet)",
-                file_name: null,
-                file_content: null,
-                sender_email: CONFIG.SENDER,
-                admin_email: CONFIG.ADMIN,
-                email_subject: "New Lead: Deeptech Checklist"
-            };
-
-            try {
-                const res = await fetch(CONFIG.WORKER, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(payload)
-                });
-
-                const data = await res.json(); 
-
-                if (res.ok) {
-                    btn.innerHTML = `<i class="ph ph-check"></i> Sent!`;
-                    btn.classList.add('text-green-600', 'border-green-600');
-                    status.innerHTML = `<span class="text-green-600"><strong>Success!</strong> You've been added to the list. Check your inbox.</span>`;
-                    emailInput.value = "";
-                } else {
-                    console.error("Worker Error Details:", data);
-                    throw new Error(data.error || data.message || 'Server error');
-                }
-            } catch (err) {
-                console.error("Lead Magnet Error:", err);
-                btn.innerHTML = 'Try Again';
-                btn.disabled = false;
-                status.innerText = "Error sending. Please check console for details.";
-                status.classList.add('text-red-500');
-            }
-        });
 
         async function processChip(formData, btn, status) {
             const payload = {
@@ -759,7 +767,7 @@
                     file_content: reader.result.split(',')[1],
                     sender_email: CONFIG.SENDER,
                     admin_email: CONFIG.ADMIN,
-                    email_subject: "Payment Receipt: Deeptech Sprint" // Custom Subject
+                    email_subject: "Payment Receipt: Deeptech Sprint"
                 };
 
                 try {
