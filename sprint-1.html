@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeptech Sprint | Idea to Funding</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://ik.imagekit.io/cbctech/Pink%20Minimal%20Beauty%20Organic%20Cosmetics%20Circle%20Logo%20(1).png" type="image/png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Google Fonts: Inter & DM Serif Display for boldness -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-cream: #FFFDF7;
+            --bg-card: #FFFFFF;
+            --text-primary: #1C1917;
+            --text-secondary: #57534E;
+            --accent-red: #D93025; /* Bold Red */
+            --accent-red-hover: #B91C1C;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .btn-red {
+            background-color: var(--accent-red);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-red:hover {
+            background-color: var(--accent-red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(217, 48, 37, 0.3);
+        }
+
+        .glass-nav {
+            background: rgba(255, 253, 247, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Card Hover Effects */
+        .sprint-card {
+            border: 1px solid #E7E5E4;
+            transition: all 0.3s ease;
+        }
+        .sprint-card:hover {
+            border-color: var(--accent-red);
+            box-shadow: 0 12px 40px rgba(217, 48, 37, 0.08);
+            transform: translateY(-4px);
+        }
+        
+        .check-list li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .check-list li::before {
+            content: "→";
+            color: var(--accent-red);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Modal Transitions */
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .modal.hidden-modal {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .modal.hidden-modal .modal-content {
+            transform: scale(0.95) translateY(10px);
+        }
+        .modal.visible-modal {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .modal.visible-modal .modal-content {
+            transform: scale(1) translateY(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="text-lg font-bold tracking-tight flex items-center gap-2 text-stone-900">
+                <span class="w-2 h-2 bg-red-600 rounded-full"></span>
+                Deeptech Initiative
+            </a>
+            <button onclick="openModal()" class="text-xs font-bold text-red-700 uppercase tracking-widest hover:text-red-900">
+                Secure Seat
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-red-100 text-red-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+            Live 60-Minute Intensive
+        </div>
+        <h1 class="text-5xl md:text-7xl text-stone-900 leading-[1.1] mb-6">
+            Stop Viewing Tech, Regulation & Economics in Silos.
+        </h1>
+        <p class="text-xl text-stone-500 leading-relaxed max-w-2xl mx-auto mb-10 font-light">
+            A high-impact sprint to validate techno-economic feasibility and prioritize your MVP for funding. 
+            <span class="text-stone-900 font-medium">From Idea to Grant in 60 minutes.</span>
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button onclick="openModal()" class="btn-red px-10 py-4 rounded-lg text-lg font-medium shadow-xl">
+                Join the Sprint - RM 99
+            </button>
+            <p class="text-xs text-stone-400 mt-4 sm:mt-0 uppercase tracking-wide">Limited to 20 Seats</p>
+        </div>
+    </section>
+
+    <!-- Target Audience & Pain Points (NEW SECTION) -->
+    <section class="py-20 px-6 bg-white border-t border-stone-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl text-stone-900 mb-4">Are You Stuck Here?</h2>
+                <p class="text-stone-500 max-w-2xl mx-auto">Deeptech kills companies that ignore the intersection of science and market reality. This sprint is designed for:</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Profile 1 -->
+                <div class="p-8 bg-stone-50 rounded-2xl border border-stone-100 hover:border-red-200 transition-colors">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-6">
+                        <i class="ph ph-flask text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-2">STEM Researchers & Professors</h3>
+                    <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-4">The "Lab-Bench" Trap</div>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        You have groundbreaking science but struggle to translate it into a commercial narrative. You keep getting rejected for grants because you can't articulate the "business case" beyond the technical novelty.
+                    </p>
+                </div>
+
+                <!-- Profile 2 -->
+                <div class="p-8 bg-stone-50 rounded-2xl border border-stone-100 hover:border-red-200 transition-colors">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-6">
+                        <i class="ph ph-rocket-launch text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-2">Early-Stage Deeptech Founders</h3>
+                    <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-4">The "Why Not Google?" Trap</div>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        You have a prototype, but investors keep asking "What's your moat?". You fear big tech will copy you in a month because you haven't layered regulatory or economic complexity into your defense.
+                    </p>
+                </div>
+
+                <!-- Profile 3 -->
+                <div class="p-8 bg-stone-50 rounded-2xl border border-stone-100 hover:border-red-200 transition-colors">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-6">
+                        <i class="ph ph-files text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-2">Grant & Funding Seekers</h3>
+                    <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-4">The "Commercial Viability" Trap</div>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        You are applying for Cradle, MOSTI, or Pre-Seed funding. You need to map a realistic path from "Idea" to "Revenue" without skipping the physics or regulatory hurdles that kill 90% of startups.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Curriculum -->
+    <section class="py-20 px-6 bg-[#FFFDF7] border-y border-stone-200">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                
+                <!-- Left: The Methodology -->
+                <div>
+                    <h2 class="text-3xl text-stone-900 mb-6">Adult Participatory Learning</h2>
+                    <p class="text-stone-600 mb-8 leading-relaxed">
+                        This is not a lecture. We use advanced <strong>Bloom’s Taxonomy</strong> application—moving rapidly from understanding to analyzing and creating. You will work with real case study data.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold shrink-0">1</div>
+                            <div>
+                                <h4 class="text-lg font-bold text-stone-900 mb-1">First Principles Analysis</h4>
+                                <p class="text-sm text-stone-500">Deconstruct regulatory and physics constraints to find the "Tech Moat" competitors miss.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold shrink-0">2</div>
+                            <div>
+                                <h4 class="text-lg font-bold text-stone-900 mb-1">Mission Objective Definition</h4>
+                                <p class="text-sm text-stone-500">Define the exact technical milestones required to unlock your next tranche of funding.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: The Agenda Card -->
+                <div class="bg-stone-50 p-8 rounded-2xl border border-stone-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">SPRINT AGENDA</div>
+                    
+                    <div class="space-y-8 mt-4">
+                        <div>
+                            <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-2">Part 1 (30 Mins)</div>
+                            <h3 class="text-xl text-stone-900 mb-2">Designing for Complexity</h3>
+                            <p class="text-sm text-stone-600 leading-relaxed">
+                                We dissect a failed Deeptech unicorn vs. a success story. Learn to layer <strong>First-Principles Economics</strong> on top of your engineering roadmap.
+                            </p>
+                        </div>
+                        <div class="w-full h-px bg-stone-200"></div>
+                        <div>
+                            <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-2">Part 2 (30 Mins)</div>
+                            <h3 class="text-xl text-stone-900 mb-2">Strategic MVP Prioritization</h3>
+                            <p class="text-sm text-stone-600 leading-relaxed">
+                                With limited runway, what do you build? We apply the <strong>Mission Requirements Matrix</strong> to filter "nice-to-haves" from "funding-critical" subsystems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- The Output & Upsell -->
+    <section class="py-24 px-6 bg-[#FFFDF7]">
+        <div class="max-w-4xl mx-auto text-center">
+            
+            <h2 class="text-4xl text-stone-900 mb-12">Your Tactical Takeaways</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-20 text-left">
+                <div class="sprint-card bg-white p-6 rounded-xl">
+                    <i class="ph ph-file-text text-3xl text-red-600 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Grant-Ready Narrative</h4>
+                    <p class="text-sm text-stone-500">A structured argument connecting your technical innovation to economic inevitability.</p>
+                </div>
+                <div class="sprint-card bg-white p-6 rounded-xl">
+                    <i class="ph ph-shield-check text-3xl text-red-600 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Moat Validation</h4>
+                    <p class="text-sm text-stone-500">A checklist to ensure your IP isn't just novel, but commercially defensible.</p>
+                </div>
+                <div class="sprint-card bg-white p-6 rounded-xl">
+                    <i class="ph ph-list-numbers text-3xl text-red-600 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">MVP Roadmap</h4>
+                    <p class="text-sm text-stone-500">A prioritized list of subsystems to build for your first 6-month sprint.</p>
+                </div>
+            </div>
+
+            <!-- Upsell / Context -->
+            <div class="bg-stone-900 text-stone-300 p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                <!-- Decorative Red Circle -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-red-900 rounded-full blur-3xl opacity-50"></div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="text-left md:w-2/3">
+                        <h3 class="text-2xl text-white font-serif mb-3">Need deeper intervention?</h3>
+                        <p class="text-sm leading-relaxed text-stone-400">
+                            This sprint is designed to solve immediate strategic blocks. For comprehensive venture building, technical due diligence, or 1:1 coaching, this workshop serves as a prerequisite for our premium tiers.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 flex flex-col gap-3 w-full">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-red-500">Premium Paths</span>
+                        <div class="bg-stone-800 px-4 py-3 rounded-lg text-sm flex justify-between items-center cursor-not-allowed opacity-70">
+                            <span>Technical Review</span>
+                            <i class="ph ph-lock-key"></i>
+                        </div>
+                        <div class="bg-stone-800 px-4 py-3 rounded-lg text-sm flex justify-between items-center cursor-not-allowed opacity-70">
+                            <span>1:1 Consultation</span>
+                            <i class="ph ph-lock-key"></i>
+                        </div>
+                        <p class="text-[10px] text-center text-stone-500">Unlocked after Sprint completion</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <footer class="py-12 px-6 text-center border-t border-stone-200 bg-white">
+        <h2 class="text-3xl font-serif text-stone-900 mb-6">Build. Validate. Fund.</h2>
+        <button onclick="openModal()" class="btn-red px-12 py-4 rounded-full text-lg font-medium mb-8">
+            Secure Your Sprint Seat (RM 99)
+        </button>
+        <div class="flex justify-center gap-6 text-xs text-stone-400">
+            <span>&copy; Deeptech Initiative</span>
+            <a href="mailto:hello@atlasnovus.co" class="hover:text-red-600 transition-colors">Contact Support</a>
+        </div>
+    </footer>
+
+    <!-- PAYMENT MODAL -->
+    <div id="paymentModal" class="modal hidden-modal fixed inset-0 z-[100] flex items-center justify-center px-4">
+        <div class="absolute inset-0 bg-stone-900/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        
+        <div class="modal-content relative bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+            <div class="bg-stone-50 border-b border-stone-100 p-6 flex justify-between items-center sticky top-0 z-10">
+                <h3 class="font-serif text-2xl text-stone-900">Secure Your Sprint Seat</h3>
+                <button onclick="closeModal()" class="text-stone-400 hover:text-red-600 transition-colors">
+                    <i class="ph ph-x text-xl"></i>
+                </button>
+            </div>
+
+            <div class="p-6">
+                <form id="sprintForm" class="space-y-6">
+                    <!-- Summary -->
+                    <div class="space-y-3">
+                        <label class="block text-xs font-bold text-stone-400 uppercase tracking-wider mb-2">Order Summary</label>
+                        
+                        <div class="relative p-4 bg-red-50/50 rounded-xl border border-red-100">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div class="font-medium text-red-900">Deeptech Sprint Access</div>
+                                    <div class="text-xs text-red-700">1-Hour Intensive • Live Session</div>
+                                </div>
+                                <div class="font-bold text-red-900">RM 99.00</div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center px-2 text-xs text-stone-500">
+                            <span>Processing Fee</span>
+                            <span>RM 2.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Total -->
+                    <div class="flex justify-between items-center border-t border-b border-stone-100 py-4">
+                        <span class="text-stone-600 font-medium">Total Payable</span>
+                        <span class="text-3xl font-bold text-stone-900 tracking-tight font-serif">RM 101</span>
+                    </div>
+                    
+                    <!-- Method Toggle -->
+                    <div class="space-y-3">
+                         <label class="block text-xs font-bold text-stone-400 uppercase tracking-wider mb-2">Payment Method</label>
+                         <div class="flex p-1 bg-stone-100 rounded-xl">
+                             <button type="button" onclick="setPaymentMethod('chip')" id="btnChip" class="flex-1 py-2 text-sm font-medium rounded-lg bg-white text-stone-900 shadow-sm transition-all">
+                                 Online Payment
+                             </button>
+                             <button type="button" onclick="setPaymentMethod('manual')" id="btnManual" class="flex-1 py-2 text-sm font-medium rounded-lg text-stone-500 hover:text-stone-900 transition-all">
+                                 Manual Transfer
+                             </button>
+                         </div>
+                    </div>
+
+                    <!-- Chip Section -->
+                    <div id="sectionChip" class="block">
+                        <div class="p-4 bg-stone-50 border border-stone-200 rounded-xl flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-red-600">
+                                <i class="ph ph-credit-card text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-stone-900">Secure Checkout</div>
+                                <div class="text-xs text-stone-500">FPX, Credit Cards, E-Wallets</div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-stone-400 mt-2">Payment gateway partner: Cubic Tech</p>
+                    </div>
+
+                    <!-- Manual Section -->
+                    <div id="sectionManual" class="hidden">
+                        <div class="bg-stone-900 text-white p-4 rounded-xl mb-4">
+                            <div class="text-xs text-stone-400 uppercase tracking-wider mb-2">Bank Transfer Details</div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <i class="ph ph-bank text-xl text-red-500"></i>
+                                <span class="font-medium">Maybank</span>
+                            </div>
+                            <div class="text-xl font-mono tracking-wider mb-2">5628 7051 3533</div>
+                            <div class="text-xs text-stone-400">Cubic Tech</div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700 mb-1">Upload Receipt</label>
+                            <input type="file" id="receiptFile" accept="image/*,.pdf" class="block w-full text-sm text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 cursor-pointer">
+                        </div>
+                    </div>
+
+                    <!-- User Fields -->
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-stone-700 mb-1">Full Name</label>
+                                <input type="text" name="user_name" required class="w-full px-4 py-2 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-stone-700 mb-1">Phone</label>
+                                <input type="tel" name="user_phone" class="w-full px-4 py-2 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700 mb-1">Email Address</label>
+                            <input type="email" name="user_email" required class="w-full px-4 py-2 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="pt-2">
+                        <button type="submit" id="submitBtn" class="w-full btn-red py-3 rounded-xl font-medium flex justify-center items-center gap-2">
+                            <span>Proceed to Payment</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                        <p id="statusMessage" class="text-center text-sm mt-3 text-stone-500"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const CLOUDFLARE_WORKER_URL = "https://flat-haze-25a0.shalomshafa.workers.dev";
+        const CHIP_BRAND_ID = "9dd18261-e178-43a2-8e66-c175e92bfaca"; 
+        const SENDER_EMAIL = "hai@shafiranoh.com"; 
+        const ADMIN_EMAIL = "hai@shafiranoh.com";
+        const TOTAL_AMOUNT = 101.00; // 99 + 2
+
+        // Modal Logic
+        const modal = document.getElementById('paymentModal');
+        let paymentMethod = 'chip';
+
+        function openModal() {
+            modal.classList.remove('hidden-modal');
+            modal.classList.add('visible-modal');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal() {
+            modal.classList.remove('visible-modal');
+            modal.classList.add('hidden-modal');
+            document.body.style.overflow = ''; 
+        }
+
+        function setPaymentMethod(method) {
+            paymentMethod = method;
+            const btnChip = document.getElementById('btnChip');
+            const btnManual = document.getElementById('btnManual');
+            const secChip = document.getElementById('sectionChip');
+            const secManual = document.getElementById('sectionManual');
+            const submitBtn = document.getElementById('submitBtn');
+            const receiptFile = document.getElementById('receiptFile');
+
+            if (method === 'chip') {
+                btnChip.classList.add('bg-white', 'text-stone-900', 'shadow-sm');
+                btnChip.classList.remove('text-stone-500');
+                btnManual.classList.remove('bg-white', 'text-stone-900', 'shadow-sm');
+                btnManual.classList.add('text-stone-500');
+                
+                secChip.classList.remove('hidden');
+                secManual.classList.add('hidden');
+                submitBtn.innerHTML = '<span>Pay Now with Chip</span><i class="ph ph-credit-card"></i>';
+                receiptFile.required = false;
+            } else {
+                btnManual.classList.add('bg-white', 'text-stone-900', 'shadow-sm');
+                btnManual.classList.remove('text-stone-500');
+                btnChip.classList.remove('bg-white', 'text-stone-900', 'shadow-sm');
+                btnChip.classList.add('text-stone-500');
+
+                secManual.classList.remove('hidden');
+                secChip.classList.add('hidden');
+                submitBtn.innerHTML = '<span>Confirm Transfer</span><i class="ph ph-paper-plane-right"></i>';
+                receiptFile.required = true;
+            }
+        }
+
+        // Form Handler
+        document.getElementById('sprintForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = '<i class="ph ph-spinner animate-spin"></i> Processing...';
+            btn.disabled = true;
+
+            if (paymentMethod === 'chip') {
+                processChipPayment(this, btn);
+            } else {
+                processManualPayment(this, btn);
+            }
+        });
+
+        async function processChipPayment(form, btn) {
+            const formData = new FormData(form);
+            const status = document.getElementById('statusMessage');
+
+            // Products for Chip (in cents)
+            const products = [
+                { name: "Deeptech Sprint Access", price: 9900, quantity: 1 },
+                { name: "Processing Fee", price: 200, quantity: 1 }
+            ];
+
+            const payload = {
+                action: 'create_payment',
+                brand_id: CHIP_BRAND_ID,
+                client: {
+                    email: formData.get('user_email'),
+                    full_name: formData.get('user_name'),
+                    phone: formData.get('user_phone') || undefined
+                },
+                purchase: {
+                    currency: "MYR",
+                    products: products,
+                    timezone: "Asia/Kuala_Lumpur"
+                },
+                success_redirect: "https://webdevsha.github.io/atlas/success.html",
+                failure_redirect: "https://webdevsha.github.io/atlas/failed.html"
+            };
+
+            try {
+                const response = await fetch(CLOUDFLARE_WORKER_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.checkout_url) {
+                    window.location.href = data.checkout_url;
+                } else {
+                    throw new Error(data.message || "Failed to create payment link");
+                }
+            } catch (error) {
+                console.error("Payment Error:", error);
+                btn.innerHTML = 'Try Again';
+                btn.disabled = false;
+                status.innerText = "Connection failed. Please try manual transfer.";
+                status.classList.add('text-red-600');
+            }
+        }
+
+        async function processManualPayment(form, btn) {
+            const formData = new FormData(form);
+            const status = document.getElementById('statusMessage');
+            const file = document.getElementById('receiptFile').files[0];
+            const itemsPurchased = "Deeptech Sprint Access + Processing Fee";
+
+            const sendToWorker = async (cleanBase64 = null, fileName = null) => {
+                const payload = {
+                    action: 'send_email',
+                    user_name: formData.get('user_name'),
+                    user_email: formData.get('user_email'),
+                    total_amount: `RM ${TOTAL_AMOUNT}`,
+                    items_purchased: itemsPurchased,
+                    file_name: fileName,
+                    file_content: cleanBase64,
+                    sender_email: SENDER_EMAIL,
+                    admin_email: ADMIN_EMAIL
+                };
+
+                try {
+                    const response = await fetch(CLOUDFLARE_WORKER_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        btn.innerHTML = '<i class="ph ph-check"></i> Success!';
+                        btn.classList.remove('btn-red');
+                        btn.classList.add('bg-green-600', 'text-white');
+                        status.innerText = "Receipt received. Confirmation sent to email.";
+                        status.className = "text-center text-sm mt-3 text-green-600";
+                        setTimeout(() => {
+                            closeModal();
+                            form.reset();
+                            btn.disabled = false;
+                            btn.innerHTML = 'Proceed to Payment';
+                            btn.classList.remove('bg-green-600');
+                            btn.classList.add('btn-red');
+                            status.innerText = "";
+                        }, 3000);
+                    } else {
+                        throw new Error("Email worker failed");
+                    }
+                } catch (error) {
+                    btn.innerHTML = 'Try Again';
+                    btn.disabled = false;
+                    status.innerText = "Error sending receipt. Check file size.";
+                    status.className = "text-center text-sm mt-3 text-red-600";
+                }
+            };
+
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    btn.innerHTML = 'File Too Large';
+                    btn.disabled = false;
+                    status.innerText = "File > 2MB. Please compress.";
+                    status.className = "text-center text-sm mt-3 text-red-600";
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = () => sendToWorker(reader.result.split(',')[1], file.name);
+                reader.onerror = () => sendToWorker(null, null);
+                reader.readAsDataURL(file);
+            } else {
+                sendToWorker(null, null);
+            }
+        }
+    </script>
+</body>
+</html>
