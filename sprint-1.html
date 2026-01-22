@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deeptech Sprint: From Lab Bench to Funding | 60-Min Strategy</title>
+    <title>Deeptech Sprint: From Idea to Grant Funding | 1-Hour Intensive</title>
     
     <!-- SEO & Social Meta Tags -->
-    <meta name="description" content="Most deeptech grants fail because the strategy isn't fundable. Join the 60-minute intensive sprint to turn serious science into a grant-ready narrative. RM 99 Early Bird.">
-    <meta name="keywords" content="Deeptech Funding, Grant Strategy, Tech Moat, MVP Prioritization, STEM Commercialization, Deeptech Initiative">
+    <meta name="description" content="A 60-minute intensive workshop for deeptech founders & researchers. Learn to map your innovation to grant funding, validate tech moats, and prioritize your MVP. Join the Sprint for RM 99.">
+    <meta name="keywords" content="Deeptech Workshop, Grant Funding, Tech Moat, MVP Prioritization, STEM Commercialization, Deeptech Initiative">
     
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Deeptech Sprint: From Idea to Grant Funding">
+    <meta property="og:description" content="Stop viewing tech and regulation in silos. Validate your techno-economic feasibility and build a fundable MVP roadmap in 60 minutes.">
+    <meta property="og:image" content="https://ik.imagekit.io/cbctech/Black%20and%20White%20Simple%20Minimalist%20Futuristic%20Gaming%20YouTube%20Banner.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Deeptech Sprint: From Idea to Grant Funding">
+    <meta name="twitter:description" content="A 60-minute intensive to help founders and researchers cross the 'Valley of Death'. Build your grant-ready strategy now.">
+    <meta name="twitter:image" content="https://ik.imagekit.io/cbctech/Black%20and%20White%20Simple%20Minimalist%20Futuristic%20Gaming%20YouTube%20Banner.jpg">
+
     <!-- Favicon -->
     <link rel="icon" href="https://ik.imagekit.io/cbctech/Pink%20Minimal%20Beauty%20Organic%20Cosmetics%20Circle%20Logo%20(1).png" type="image/png">
     
@@ -21,12 +33,14 @@
     <!-- Google Fonts: Inter & DM Serif Display for boldness -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg-cream: #FFFDF7;
+            --bg-card: #FFFFFF;
             --text-primary: #1C1917;
+            --text-secondary: #57534E;
             --accent-red: #D93025; /* Bold Red */
             --accent-red-hover: #B91C1C;
         }
@@ -45,41 +59,18 @@
         .btn-red {
             background-color: var(--accent-red);
             color: white;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 14px 0 rgba(217, 48, 37, 0.39);
+            transition: all 0.3s ease;
         }
         .btn-red:hover {
             background-color: var(--accent-red-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(217, 48, 37, 0.23);
-        }
-
-        .btn-outline {
-            border: 2px solid #E7E5E4;
-            color: #57534E;
-            background: white;
-            transition: all 0.2s ease;
-        }
-        .btn-outline:hover {
-            border-color: #D93025;
-            color: #D93025;
+            box-shadow: 0 10px 25px rgba(217, 48, 37, 0.3);
         }
 
         .glass-nav {
-            background: rgba(255, 253, 247, 0.9);
+            background: rgba(255, 253, 247, 0.85);
             backdrop-filter: saturate(180%) blur(20px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        /* Scarcity Badge Pulse */
-        .pulse-dot {
-            box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
-            animation: pulse-red 2s infinite;
-        }
-        @keyframes pulse-red {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
         }
 
         /* Card Hover Effects */
@@ -92,55 +83,42 @@
             box-shadow: 0 12px 40px rgba(217, 48, 37, 0.08);
             transform: translateY(-4px);
         }
-
-        /* Check list styling */
-        .value-list li {
-            padding-left: 1.5rem;
+        
+        .check-list li {
             position: relative;
-            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
         }
-        .value-list li::before {
-            content: "✓";
-            color: #16A34A;
-            font-weight: bold;
+        .check-list li::before {
+            content: "→";
+            color: var(--accent-red);
             position: absolute;
             left: 0;
-        }
-        
-        .strike-price {
-            text-decoration: line-through;
-            color: #A8A29E;
-        }
-
-        /* Blurred Framework Preview */
-        .blur-preview {
-            position: relative;
-            overflow: hidden;
-        }
-        .blur-preview::after {
-            content: "Unlock Full Framework";
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(4px);
             font-weight: bold;
-            color: #D93025;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px dashed #D93025;
-            border-radius: 12px;
         }
 
         /* Modal Transitions */
-        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
-        .modal.hidden-modal { opacity: 0; visibility: hidden; pointer-events: none; }
-        .modal.visible-modal { opacity: 1; visibility: visible; pointer-events: auto; }
-        .modal-content { transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .modal.hidden-modal .modal-content { transform: scale(0.95) translateY(10px); }
-        .modal.visible-modal .modal-content { transform: scale(1) translateY(0); }
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .modal.hidden-modal {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .modal.hidden-modal .modal-content {
+            transform: scale(0.95) translateY(10px);
+        }
+        .modal.visible-modal {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .modal.visible-modal .modal-content {
+            transform: scale(1) translateY(0);
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -152,329 +130,262 @@
                 <span class="w-2 h-2 bg-red-600 rounded-full"></span>
                 Deeptech Initiative
             </a>
-            <div class="flex gap-4 items-center">
-                <a href="#lead-magnet" class="hidden md:block text-xs font-bold text-stone-500 hover:text-stone-900 uppercase tracking-widest">Free Checklist</a>
-                <button onclick="openModal()" class="text-xs font-bold text-red-700 uppercase tracking-widest hover:text-red-900 bg-red-50 px-4 py-2 rounded-full">
-                    Secure Seat
-                </button>
-            </div>
+            <button onclick="openModal()" class="text-xs font-bold text-red-700 uppercase tracking-widest hover:text-red-900">
+                Secure Seat
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-16 px-6 max-w-4xl mx-auto text-center">
-        <!-- Scarcity Badge -->
-        <div class="inline-flex items-center gap-2 bg-red-50 text-red-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-8 border border-red-100">
-            <span class="w-2 h-2 bg-red-600 rounded-full pulse-dot"></span>
-            Limited: 12 Seats Remaining for Jan 31
+    <section class="pt-32 pb-20 px-6 max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-red-100 text-red-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+            Live 60-Minute Intensive
         </div>
-        
-        <h1 class="text-4xl md:text-6xl text-stone-900 leading-[1.05] mb-6">
-            Most Deeptech Grants Fail for One Reason: <br>
-            <span class="text-stone-500">The Technology is Real, <br>But The Strategy Isn't Fundable.</span>
+        <h1 class="text-5xl md:text-7xl text-stone-900 leading-[1.1] mb-6">
+            Stop Viewing Tech, Regulation & Economics in Silos.
         </h1>
-        
-        <p class="text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto mb-10 font-light">
-            Turn your serious science into a grant-ready, defensible venture narrative in this 60-minute intensive sprint. <span class="font-bold text-stone-900">Without dumbing it down.</span>
+        <p class="text-xl text-stone-500 leading-relaxed max-w-2xl mx-auto mb-8 font-light">
+            A high-impact sprint to validate techno-economic feasibility and prioritize your MVP for funding. 
+            <span class="text-stone-900 font-medium">From Idea to Grant in 60 minutes.</span>
         </p>
+
+        <!-- Event Details Badge -->
+        <div class="inline-flex flex-wrap justify-center gap-4 text-sm font-medium text-stone-600 bg-white border border-stone-200 px-6 py-3 rounded-xl mb-10 shadow-sm">
+            <span class="flex items-center gap-2"><i class="ph ph-calendar text-red-600"></i> Sat, 31st Jan 2026</span>
+            <span class="flex items-center gap-2"><i class="ph ph-clock text-red-600"></i> 11:00 AM - 12:00 PM</span>
+            <span class="flex items-center gap-2"><i class="ph ph-video-camera text-red-600"></i> Zoom Live</span>
+        </div>
         
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
-            <button onclick="openModal()" class="btn-red px-10 py-4 rounded-lg text-lg font-bold shadow-xl w-full sm:w-auto">
-                Get My Grant-Ready Strategy (RM 99)
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button onclick="openModal()" class="btn-red px-10 py-4 rounded-lg text-lg font-medium shadow-xl">
+                Join the Sprint - RM 99
             </button>
-            <a href="#lead-magnet" class="btn-outline px-8 py-4 rounded-lg text-lg font-medium w-full sm:w-auto">
-                Get Free Checklist
-            </a>
-        </div>
-        
-        <!-- Price Deadline Note -->
-        <p class="text-xs text-red-600 font-medium mb-8">
-            <i class="ph ph-warning-circle"></i> Early Bird ends Jan 28, 2026. Price reverts to RM 299 after deadline.
-        </p>
-
-        <!-- Timer & Guarantee -->
-        <div class="flex flex-col md:flex-row justify-center items-center gap-6 text-xs text-stone-500">
-            <div class="flex items-center gap-2">
-                <i class="ph ph-clock text-lg text-red-600"></i>
-                <span>Early Bird closes in: <strong id="countdown" class="text-stone-900">00:00:00</strong></span>
-            </div>
-            <div class="flex items-center gap-2">
-                <i class="ph ph-shield-check text-lg text-green-600"></i>
-                <span>100% Satisfaction Guarantee</span>
-            </div>
+            <p class="text-xs text-stone-400 mt-4 sm:mt-0 uppercase tracking-wide">Limited to 20 Seats</p>
         </div>
     </section>
 
-    <!-- Social Proof Bar -->
-    <section class="py-8 border-y border-stone-200 bg-white">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <p class="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6">Frameworks aligned with mandates from</p>
-            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                <span class="font-serif text-xl font-bold text-stone-800">KHAZANAH</span>
-                <span class="font-bold text-xl text-stone-800 tracking-tight">PETRONAS</span>
-                <span class="font-bold text-xl text-stone-800 italic">Cradle</span>
-                <span class="font-serif text-xl font-bold text-stone-800">MOSTI</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why You're Rejected -->
-    <section class="py-20 px-6 bg-[#FAFAF9]">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl text-stone-900 mb-4">Why Your Brilliant Research Gets Rejected</h2>
-                <p class="text-stone-500 text-lg">It's rarely the science. It's usually a failure of translation.</p>
+    <!-- Target Audience & Pain Points -->
+    <section class="py-20 px-6 bg-white border-y border-stone-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl text-stone-900 mb-4">Are You Stuck Here?</h2>
+                <p class="text-stone-500 max-w-2xl mx-auto">Deeptech kills companies that ignore the intersection of science and market reality. This sprint is designed for:</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm">
-                    <div class="text-red-600 font-bold text-lg mb-2">01</div>
-                    <h3 class="font-bold text-stone-900 mb-2">Economic Blindness</h3>
-                    <p class="text-sm text-stone-600">Strong technology, but weak economic inevitability. You haven't proven unit economics at scale.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm">
-                    <div class="text-red-600 font-bold text-lg mb-2">02</div>
-                    <h3 class="font-bold text-stone-900 mb-2">The Feature Trap</h3>
-                    <p class="text-sm text-stone-600">Your MVP scope is disconnected from funding milestones. You're building features, not value.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm">
-                    <div class="text-red-600 font-bold text-lg mb-2">03</div>
-                    <h3 class="font-bold text-stone-900 mb-2">Indefensible Moat</h3>
-                    <p class="text-sm text-stone-600">Beyond "novel research," you have no regulatory or structural defense against Big Tech copying you.</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-10">
-                <p class="text-stone-900 font-medium mb-4">This sprint directly addresses all three — live.</p>
-                <i class="ph ph-arrow-down text-2xl text-stone-300"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- Success Stories -->
-    <section class="py-20 px-6 bg-white border-t border-stone-100">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl text-stone-900 mb-10 text-center">Results from the Network</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100 relative">
-                    <div class="absolute -top-4 -left-2 text-6xl text-red-100 font-serif leading-none">“</div>
-                    <p class="text-stone-700 text-sm italic mb-4 relative z-10">The framework gave me the structure I needed. I'm now ready to pitch to Cradle with a defensible narrative.</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs">LF</div>
-                        <div>
-                            <div class="text-xs font-bold text-stone-900">Founder, Learnify</div>
-                            <div class="text-[10px] text-stone-500">EdTech Startup</div>
-                        </div>
+                <!-- Profile 1 -->
+                <div class="p-8 bg-stone-50 rounded-2xl border border-stone-100 hover:border-red-200 transition-colors">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-6">
+                        <i class="ph ph-flask text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-2">STEM Researchers & Professors</h3>
+                    <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-4">The "Lab-Bench" Trap</div>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        You have groundbreaking science but struggle to translate it into a commercial narrative. You keep getting rejected for grants because you can't articulate the "business case" beyond the technical novelty.
+                    </p>
                 </div>
-                <!-- Testimonial 2 -->
-                <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100 relative">
-                    <div class="absolute -top-4 -left-2 text-6xl text-red-100 font-serif leading-none">“</div>
-                    <p class="text-stone-700 text-sm italic mb-4 relative z-10">Refined our deeptech narrative during the Sunway iLab consult. The 'Moat Mapping' exercise was a game changer.</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold text-xs">CA</div>
-                        <div>
-                            <div class="text-xs font-bold text-stone-900">Certava AI</div>
-                            <div class="text-[10px] text-stone-500">Digital Trust</div>
-                        </div>
+
+                <!-- Profile 2 -->
+                <div class="p-8 bg-stone-50 rounded-2xl border border-stone-100 hover:border-red-200 transition-colors">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-6">
+                        <i class="ph ph-rocket-launch text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-2">Early-Stage Deeptech Founders</h3>
+                    <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-4">The "Why Not Google?" Trap</div>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        You have a prototype, but investors keep asking "What's your moat?". You fear big tech will copy you in a month because you haven't layered regulatory or economic complexity into your defense.
+                    </p>
                 </div>
-                <!-- Testimonial 3 -->
-                <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100 relative">
-                    <div class="absolute -top-4 -left-2 text-6xl text-red-100 font-serif leading-none">“</div>
-                    <p class="text-stone-700 text-sm italic mb-4 relative z-10">Using this strategy, we secured 3 intro meetings for our SLM tech products in just one week.</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 font-bold text-xs">CL</div>
-                        <div>
-                            <div class="text-xs font-bold text-stone-900">Cetalabs</div>
-                            <div class="text-[10px] text-stone-500">AI Safety Research</div>
-                        </div>
+
+                <!-- Profile 3 -->
+                <div class="p-8 bg-stone-50 rounded-2xl border border-stone-100 hover:border-red-200 transition-colors">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-6">
+                        <i class="ph ph-files text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-2">Grant & Funding Seekers</h3>
+                    <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-4">The "Commercial Viability" Trap</div>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        You are applying for Cradle, MOSTI, or Pre-Seed funding. You need to map a realistic path from "Idea" to "Revenue" without skipping the physics or regulatory hurdles that kill 90% of startups.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Solution: What Actually Happens -->
-    <section class="py-20 px-6 bg-[#FAFAF9]">
+    <!-- The Curriculum (UPDATED AGENDA) -->
+    <section class="py-20 px-6 bg-[#FFFDF7] border-y border-stone-200">
         <div class="max-w-5xl mx-auto">
-            <div class="flex flex-col md:flex-row gap-12 items-center">
-                <div class="md:w-1/2">
-                    <h2 class="text-4xl text-stone-900 mb-6">Here's Exactly What Happens</h2>
-                    <p class="text-stone-600 mb-8">No fluff. No academic theory. 60 minutes of tactical warroom work.</p>
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                
+                <!-- Left: The Methodology -->
+                <div>
+                    <h2 class="text-3xl text-stone-900 mb-6">Adult Participatory Learning</h2>
+                    <p class="text-stone-600 mb-8 leading-relaxed">
+                        This is not a lecture. We use advanced <strong>Bloom’s Taxonomy</strong> application—moving rapidly from understanding to analyzing and creating. You will work with real case study data to produce actionable strategy.
+                    </p>
                     
                     <div class="space-y-6">
                         <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-600 font-bold text-sm shrink-0">10m</div>
+                            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold shrink-0">1</div>
                             <div>
-                                <h4 class="font-bold text-stone-900">Shock Therapy Analysis</h4>
-                                <p class="text-sm text-stone-600">We rip apart a failed deeptech unicorn case study to expose why "better tech" doesn't win funding.</p>
+                                <h4 class="text-lg font-bold text-stone-900 mb-1">First Principles Analysis</h4>
+                                <p class="text-sm text-stone-500">Deconstruct regulatory and physics constraints to find the "Tech Moat" competitors miss.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-600 font-bold text-sm shrink-0">20m</div>
+                            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold shrink-0">2</div>
                             <div>
-                                <h4 class="font-bold text-stone-900">Moat Mapping Exercise</h4>
-                                <p class="text-sm text-stone-600">Interactive exercise to layer Regulatory and Economic moats on top of your engineering roadmap.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-600 font-bold text-sm shrink-0">30m</div>
-                            <div>
-                                <h4 class="font-bold text-stone-900">MVP Prioritization & Narrative</h4>
-                                <p class="text-sm text-stone-600">Use the Mission Matrix to filter your roadmap and synthesize a 3-point narrative ready for your next grant application.</p>
+                                <h4 class="text-lg font-bold text-stone-900 mb-1">Mission Objective Definition</h4>
+                                <p class="text-sm text-stone-500">Define the exact technical milestones required to unlock your next tranche of funding.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="md:w-1/2">
-                    <!-- Visual Proof: Blurred Framework -->
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-lg blur-preview h-80 flex flex-col gap-4">
-                        <div class="w-full h-8 bg-stone-200 rounded animate-pulse"></div>
-                        <div class="flex gap-4">
-                            <div class="w-1/3 h-32 bg-stone-200 rounded animate-pulse"></div>
-                            <div class="w-2/3 h-32 bg-stone-200 rounded animate-pulse"></div>
+
+                <!-- Right: The Agenda Card -->
+                <div class="bg-stone-50 p-8 rounded-2xl border border-stone-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">SPRINT AGENDA</div>
+                    
+                    <div class="space-y-8 mt-4">
+                        <div>
+                            <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-2">Part 1 (30 Mins)</div>
+                            <h3 class="text-xl text-stone-900 mb-2">Strategic Positioning of Technology</h3>
+                            <p class="text-sm text-stone-600 leading-relaxed mb-3">
+                                Analysis on technical MOAT & research gap, Comparison & Positioning Strategy.
+                            </p>
+                            <div class="flex items-center gap-2 text-xs font-semibold text-stone-800 bg-white border border-stone-200 rounded-lg px-3 py-2">
+                                <i class="ph ph-check-circle text-green-600"></i> Outcome: Strong Positioning & Compelling Narrative
+                            </div>
                         </div>
-                        <div class="w-full h-4 bg-stone-200 rounded animate-pulse"></div>
-                        <div class="w-3/4 h-4 bg-stone-200 rounded animate-pulse"></div>
-                        <div class="text-center text-[10px] text-stone-400 mt-auto">Framework used in Cradle/MOSTI-aligned evaluations</div>
+                        <div class="w-full h-px bg-stone-200"></div>
+                        <div>
+                            <div class="text-xs font-bold text-red-600 uppercase tracking-widest mb-2">Part 2 (30 Mins)</div>
+                            <h3 class="text-xl text-stone-900 mb-2">MVP Development Strategy for Funding</h3>
+                            <p class="text-sm text-stone-600 leading-relaxed mb-3">
+                                First Principles considering technical & customer objectives & requirements.
+                            </p>
+                            <div class="flex items-center gap-2 text-xs font-semibold text-stone-800 bg-white border border-stone-200 rounded-lg px-3 py-2">
+                                <i class="ph ph-check-circle text-green-600"></i> Outcome: A Tech Development Plan that Wins Commercial Objectives
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- The Offer (Value Stack & Anchoring) -->
-    <section class="py-24 px-6 bg-stone-900 text-white">
-        <div class="max-w-4xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-serif mb-4 text-white">Get The Deeptech Strategic Toolkit</h2>
-                    <p class="text-stone-400 mb-8">This isn't just a webinar. It's a consulting intervention packaged as a sprint. You get the <strong>starter frameworks</strong> we use to structure and validate investable deeptech ventures.</p>
-                    
-                    <ul class="value-list space-y-4 text-stone-300 text-sm mb-8">
-                        <li class="flex justify-between">
-                            <span>60-Minute Live Strategy Intensive</span>
-                            <span class="text-stone-500 strike-price">RM 1,500</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span>Moat Validation Framework (PDF)</span>
-                            <span class="text-stone-500 strike-price">RM 250</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span>MVP Prioritization Matrix</span>
-                            <span class="text-stone-500 strike-price">RM 250</span>
-                        </li>
-                        <li class="border-t border-stone-700 pt-4 mt-4 flex justify-between font-bold text-white text-base">
-                            <span>Total Value</span>
-                            <span>RM 2,000</span>
-                        </li>
-                    </ul>
-                    
-                    <!-- Price Anchoring -->
-                    <div class="bg-stone-800 p-4 rounded-lg text-xs text-stone-400">
-                        <p class="mb-1"><strong>Compare vs:</strong></p>
-                        <ul class="space-y-1 list-disc pl-4">
-                            <li>Typical Grant Consultancy: <span class="text-white">RM 5,000 - RM 15,000</span></li>
-                            <li>Commercialization Workshop: <span class="text-white">RM 800+</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="bg-white text-stone-900 p-8 rounded-2xl text-center relative overflow-hidden shadow-2xl">
-                    <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1">SAVE 95%</div>
-                    
-                    <p class="text-stone-500 text-sm uppercase tracking-widest mb-2">Early Bird Offer</p>
-                    <div class="text-6xl font-bold text-stone-900 mb-2 font-serif">RM 99</div>
-                    <p class="text-xs text-stone-400 mb-4">One-time payment. Grants are leverage toward revenue.</p>
-                    <p class="text-xs text-red-600 font-medium mb-6 bg-red-50 inline-block px-2 py-1 rounded">Price increases to RM 299 on Jan 28</p>
-                    
-                    <button onclick="openModal()" class="w-full btn-red py-4 rounded-lg font-bold text-lg mb-4 shadow-lg">
-                        Secure My Seat Now
-                    </button>
-                    
-                    <div class="flex items-center justify-center gap-2 text-xs text-stone-500 bg-stone-50 py-2 rounded-lg">
-                        <i class="ph ph-lock-key"></i>
-                        <span>30-Day Money Back Guarantee</span>
-                    </div>
-                    <p class="text-[10px] text-stone-400 mt-3">If you don't leave with a clearer roadmap, email us for a full refund.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instructor (Authority & Translation Power) -->
-    <section class="py-20 px-6 bg-[#FFFDF7]">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl text-stone-900 mb-8">Igniting Malaysia's Deeptech Ambition</h2>
-            <div class="flex flex-col items-center">
-                <img src="https://aphelia.space/wp-content/uploads/2023/12/WhatsApp-Image.png" alt="Razlan Dhamir" class="w-24 h-24 rounded-full border-2 border-red-100 shadow-md mb-4 grayscale hover:grayscale-0 transition-all">
-                <h3 class="text-xl font-bold text-stone-900">Razlan Dhamir Hamdan</h3>
-                <p class="text-red-600 text-sm font-bold uppercase tracking-widest mb-6">CEO Aphelia Space • Startup World Cup Winner</p>
-                <p class="text-stone-600 leading-relaxed mb-8">
-                    "I didn't just build a space company; I built the strategy that got it funded. Razlan has <strong>sat on both sides of the table</strong> — writing the science and defending it to funders, regulators, and commercial partners. This sprint creates the bridge between your lab bench and the investor's checkbook."
-                </p>
-                <div class="flex gap-4 text-xs font-bold text-stone-400 uppercase tracking-widest">
-                    <span>Payload Pioneers 2024</span>
-                    <span>•</span>
-                    <span>ESRIC Luxembourg</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ (New) -->
+    <!-- Instructor Section (UPDATED) -->
     <section class="py-20 px-6 bg-white border-t border-stone-200">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl text-stone-900 mb-10 text-center">Common Questions</h2>
-            <div class="space-y-4">
-                <div class="p-5 border border-stone-200 rounded-lg">
-                    <h4 class="font-bold text-stone-900 mb-2">Is this for SaaS apps?</h4>
-                    <p class="text-sm text-stone-600">No. This is strictly for hard-tech/deeptech ventures (Science, Engineering, Bio, Space, AI Infrastructure). If you can iterate your product in a weekend, this isn't for you.</p>
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl text-stone-900 mb-12 text-center">Meet Your Instructor</h2>
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/3 relative">
+                    <div class="absolute inset-0 bg-red-900 rounded-2xl transform translate-x-3 translate-y-3"></div>
+                    <img src="https://aphelia.space/wp-content/uploads/2023/12/WhatsApp-Image.png" alt="Razlan Dhamir Hamdan" class="relative rounded-2xl shadow-xl w-full object-cover grayscale hover:grayscale-0 transition-all duration-500 z-10">
                 </div>
-                <div class="p-5 border border-stone-200 rounded-lg">
-                    <h4 class="font-bold text-stone-900 mb-2">I am just a researcher, not a founder (yet).</h4>
-                    <p class="text-sm text-stone-600">Perfect. This prevents you from building a product nobody wants. You'll learn how to frame your research as a "Venture Asset" to secure grants.</p>
-                </div>
-                <div class="p-5 border border-stone-200 rounded-lg">
-                    <h4 class="font-bold text-stone-900 mb-2">Do I need a prototype?</h4>
-                    <p class="text-sm text-stone-600">No. Validating the <em>economics</em> and <em>regulatory strategy</em> happens before the prototype. In fact, it saves you from building the wrong prototype.</p>
-                </div>
-                <div class="p-5 border border-stone-200 rounded-lg">
-                    <h4 class="font-bold text-stone-900 mb-2">Is there a refund policy?</h4>
-                    <p class="text-sm text-stone-600">Yes. If you attend and don't feel you have a clearer path to funding, email us for a 100% refund. No questions asked.</p>
+                <div class="md:w-2/3">
+                    <h3 class="text-3xl font-serif text-stone-900 mb-1">Razlan Dhamir Hamdan</h3>
+                    <p class="text-red-600 font-bold text-xs uppercase tracking-widest mb-6">Co-Founder, Aphelia Space & Deeptech Initiative</p>
+                    
+                    <p class="text-stone-600 mb-6 leading-relaxed">
+                        A deeptech operator turning "science fiction" into sovereign capability. Razlan leads <strong>Aphelia Space</strong>, developing wireless power infrastructure for lunar exploration. He pivoted from smartphone wireless charging to satellite energy grids by mastering the pivot from consumer tech to deeptech industrial strategy.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 shrink-0"><i class="ph ph-trophy text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-stone-900">Startup World Cup Winner</h4>
+                                <p class="text-xs text-stone-500 mt-1">Recognized for proprietary high-frequency semiconductor chip design.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 shrink-0"><i class="ph ph-rocket text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-stone-900">Payload Pioneers 2024</h4>
+                                <p class="text-xs text-stone-500 mt-1">Honoree for contributions to the global space economy.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 shrink-0"><i class="ph ph-globe text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-stone-900">Global Space Chain</h4>
+                                <p class="text-xs text-stone-500 mt-1">Technology adopted by players like AstroLab, Solysys Mining, and Spacenium.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 shrink-0"><i class="ph ph-certificate text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-stone-900">ESRIC (Luxembourg)</h4>
+                                <p class="text-xs text-stone-500 mt-1">Selected for European Space Resources Innovation Centre's start-up programme.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lead Magnet (Funnel) -->
-    <section id="lead-magnet" class="py-16 px-6 bg-stone-100 border-t border-stone-200">
-        <div class="max-w-2xl mx-auto text-center">
-            <h3 class="text-2xl text-stone-900 mb-4">Not Ready to Commit?</h3>
-            <p class="text-stone-600 mb-6">Get our <strong>Deeptech Grant Readiness Checklist</strong> for free. See exactly what evaluators look for before they reject you.</p>
+    <!-- The Output & Upsell -->
+    <section class="py-24 px-6 bg-[#FFFDF7] border-t border-stone-200">
+        <div class="max-w-4xl mx-auto text-center">
             
-            <form id="leadForm" class="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto w-full">
-                <input type="email" name="lead_email" placeholder="Enter your professional email" required class="flex-1 px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
-                <button type="submit" id="leadBtn" class="bg-white border border-stone-300 text-stone-800 px-6 py-3 rounded-lg font-medium hover:border-stone-400 hover:text-red-600 transition-colors shadow-sm whitespace-nowrap flex items-center justify-center gap-2">
-                    <span>Send Me Checklist</span>
-                    <i class="ph ph-paper-plane-right"></i>
-                </button>
-            </form>
-            <p id="leadStatus" class="text-xs text-stone-500 italic mt-4">
-                <i class="ph ph-info"></i> Note: The checklist will be sent to your inbox immediately upon sign-up.
-            </p>
+            <h2 class="text-4xl text-stone-900 mb-12">Your Tactical Takeaways</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-20 text-left">
+                <div class="sprint-card bg-white p-6 rounded-xl">
+                    <i class="ph ph-file-text text-3xl text-red-600 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Grant-Ready Narrative</h4>
+                    <p class="text-sm text-stone-500">A structured argument connecting your technical innovation to economic inevitability.</p>
+                </div>
+                <div class="sprint-card bg-white p-6 rounded-xl">
+                    <i class="ph ph-shield-check text-3xl text-red-600 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Moat Validation</h4>
+                    <p class="text-sm text-stone-500">A checklist to ensure your IP isn't just novel, but commercially defensible.</p>
+                </div>
+                <div class="sprint-card bg-white p-6 rounded-xl">
+                    <i class="ph ph-list-numbers text-3xl text-red-600 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">MVP Roadmap</h4>
+                    <p class="text-sm text-stone-500">A prioritized list of subsystems to build for your first 6-month sprint.</p>
+                </div>
+            </div>
+
+            <!-- Upsell / Context -->
+            <div class="bg-stone-900 text-stone-300 p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                <!-- Decorative Red Circle -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-red-900 rounded-full blur-3xl opacity-50"></div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="text-left md:w-2/3">
+                        <h3 class="text-2xl text-white font-serif mb-3">Need deeper intervention?</h3>
+                        <p class="text-sm leading-relaxed text-stone-400">
+                            This sprint is designed to solve immediate strategic blocks. For comprehensive venture building, technical due diligence, or 1:1 coaching, this workshop serves as a prerequisite for our premium tiers.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 flex flex-col gap-3 w-full">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-red-500">Premium Paths</span>
+                        <div class="bg-stone-800 px-4 py-3 rounded-lg text-sm flex justify-between items-center cursor-not-allowed opacity-70">
+                            <span>Technical Review</span>
+                            <i class="ph ph-lock-key"></i>
+                        </div>
+                        <div class="bg-stone-800 px-4 py-3 rounded-lg text-sm flex justify-between items-center cursor-not-allowed opacity-70">
+                            <span>1:1 Consultation</span>
+                            <i class="ph ph-lock-key"></i>
+                        </div>
+                        <p class="text-[10px] text-center text-stone-500">Unlocked after Sprint completion</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Final CTA Footer -->
+    <!-- Final CTA -->
     <footer class="py-12 px-6 text-center border-t border-stone-200 bg-white">
-        <p class="text-sm font-bold text-red-600 uppercase tracking-widest mb-4">Last Chance for Jan 31 Intake</p>
-        <h2 class="text-3xl font-serif text-stone-900 mb-8">Stop Guessing. Start Building.</h2>
-        <button onclick="openModal()" class="btn-red px-12 py-4 rounded-full text-lg font-medium mb-8 shadow-xl">
-            Get My Strategy - RM 99
+        <h2 class="text-3xl font-serif text-stone-900 mb-6">Build. Validate. Fund.</h2>
+        <button onclick="openModal()" class="btn-red px-12 py-4 rounded-full text-lg font-medium mb-8">
+            Secure Your Sprint Seat (RM 99)
         </button>
         <div class="flex justify-center gap-6 text-xs text-stone-400">
             <span>&copy; 2026 Deeptech Initiative</span>
@@ -488,10 +399,7 @@
         
         <div class="modal-content relative bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
             <div class="bg-stone-50 border-b border-stone-100 p-6 flex justify-between items-center sticky top-0 z-10">
-                <div>
-                    <h3 class="font-serif text-2xl text-stone-900">Secure Your Seat</h3>
-                    <p class="text-xs text-stone-500 mt-1">100% Secure SSL Payment</p>
-                </div>
+                <h3 class="font-serif text-2xl text-stone-900">Secure Your Sprint Seat</h3>
                 <button onclick="closeModal()" class="text-stone-400 hover:text-red-600 transition-colors">
                     <i class="ph ph-x text-xl"></i>
                 </button>
@@ -499,16 +407,73 @@
 
             <div class="p-6">
                 <form id="sprintForm" class="space-y-6">
-                    
-                    <!-- Item -->
-                    <div class="flex items-center justify-between p-4 bg-red-50 rounded-xl border border-red-100">
-                        <div>
-                            <div class="font-bold text-red-900">Deeptech Strategy Sprint</div>
-                            <div class="text-xs text-red-700 mt-1">Live Workshop + All Templates</div>
+                    <!-- Summary -->
+                    <div class="space-y-3">
+                        <label class="block text-xs font-bold text-stone-400 uppercase tracking-wider mb-2">Order Summary</label>
+                        
+                        <div class="relative p-4 bg-red-50/50 rounded-xl border border-red-100">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div class="font-medium text-red-900">Deeptech Sprint Access</div>
+                                    <div class="text-xs text-red-700">1-Hour Intensive • Live Session</div>
+                                </div>
+                                <div class="font-bold text-red-900">RM 99.00</div>
+                            </div>
                         </div>
-                        <div class="text-right">
-                            <div class="text-xs text-red-400 strike-price">RM 299</div>
-                            <div class="font-bold text-xl text-red-900">RM 99</div>
+
+                        <div class="flex justify-between items-center px-2 text-xs text-stone-500">
+                            <span>Processing Fee</span>
+                            <span>RM 2.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Total -->
+                    <div class="flex justify-between items-center border-t border-b border-stone-100 py-4">
+                        <span class="text-stone-600 font-medium">Total Payable</span>
+                        <span class="text-3xl font-bold text-stone-900 tracking-tight font-serif">RM 101</span>
+                    </div>
+                    
+                    <!-- Method Toggle -->
+                    <div class="space-y-3">
+                         <label class="block text-xs font-bold text-stone-400 uppercase tracking-wider mb-2">Payment Method</label>
+                         <div class="flex p-1 bg-stone-100 rounded-xl">
+                             <button type="button" onclick="setPaymentMethod('chip')" id="btnChip" class="flex-1 py-2 text-sm font-medium rounded-lg bg-white text-stone-900 shadow-sm transition-all">
+                                 Online Payment
+                             </button>
+                             <button type="button" onclick="setPaymentMethod('manual')" id="btnManual" class="flex-1 py-2 text-sm font-medium rounded-lg text-stone-500 hover:text-stone-900 transition-all">
+                                 Manual Transfer
+                             </button>
+                         </div>
+                    </div>
+
+                    <!-- Chip Section -->
+                    <div id="sectionChip" class="block">
+                        <div class="p-4 bg-stone-50 border border-stone-200 rounded-xl flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-red-600">
+                                <i class="ph ph-credit-card text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-stone-900">Secure Checkout</div>
+                                <div class="text-xs text-stone-500">FPX, Credit Cards, E-Wallets</div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-stone-400 mt-2">Payment gateway partner: Cubic Tech</p>
+                    </div>
+
+                    <!-- Manual Section -->
+                    <div id="sectionManual" class="hidden">
+                        <div class="bg-stone-900 text-white p-4 rounded-xl mb-4">
+                            <div class="text-xs text-stone-400 uppercase tracking-wider mb-2">Bank Transfer Details</div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <i class="ph ph-bank text-xl text-red-500"></i>
+                                <span class="font-medium">Maybank</span>
+                            </div>
+                            <div class="text-xl font-mono tracking-wider mb-2">5628 7051 3533</div>
+                            <div class="text-xs text-stone-400">Cubic Tech</div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700 mb-1">Upload Receipt</label>
+                            <input type="file" id="receiptFile" accept="image/*,.pdf" class="block w-full text-sm text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 cursor-pointer">
                         </div>
                     </div>
 
@@ -516,54 +481,27 @@
                     <div class="space-y-4">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold text-stone-500 uppercase tracking-wide mb-1">Full Name</label>
-                                <input type="text" name="user_name" required class="w-full px-4 py-2.5 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                                <label class="block text-sm font-medium text-stone-700 mb-1">Full Name</label>
+                                <input type="text" name="user_name" required class="w-full px-4 py-2 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-stone-500 uppercase tracking-wide mb-1">Phone</label>
-                                <input type="tel" name="user_phone" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                                <label class="block text-sm font-medium text-stone-700 mb-1">Phone</label>
+                                <input type="tel" name="user_phone" class="w-full px-4 py-2 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-stone-500 uppercase tracking-wide mb-1">Email Address</label>
-                            <input type="email" name="user_email" required class="w-full px-4 py-2.5 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                            <label class="block text-sm font-medium text-stone-700 mb-1">Email Address</label>
+                            <input type="email" name="user_email" required class="w-full px-4 py-2 rounded-lg border border-stone-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
                         </div>
-                    </div>
-
-                    <!-- Payment Mode (Hidden Manual) -->
-                    <div>
-                        <label class="block text-xs font-bold text-stone-500 uppercase tracking-wide mb-2">Payment Method</label>
-                        <div class="grid grid-cols-1 gap-2">
-                            <label class="flex items-center gap-3 p-3 border border-red-200 bg-red-50/50 rounded-lg cursor-pointer">
-                                <input type="radio" name="payment_method" value="chip" checked onchange="togglePayment('chip')" class="text-red-600 focus:ring-red-500">
-                                <span class="text-sm font-medium text-stone-900">Secure Online Payment (FPX/Card)</span>
-                            </label>
-                        </div>
-                        <!-- Subtle Manual Link -->
-                        <div class="text-center mt-3">
-                            <a href="#" onclick="event.preventDefault(); togglePayment('manual');" class="text-xs text-stone-400 hover:text-stone-600 underline decoration-dotted">Having trouble? Use Manual Transfer</a>
-                        </div>
-                    </div>
-
-                    <!-- Manual Section (Hidden by default) -->
-                    <div id="sectionManual" class="hidden mt-4 pt-4 border-t border-stone-100">
-                        <div class="bg-stone-100 p-4 rounded-lg mb-4 text-xs text-stone-600">
-                            <strong>Bank:</strong> Maybank<br>
-                            <strong>Account:</strong> 5628 7051 3533<br>
-                            <strong>Name:</strong> Cubic Tech<br>
-                            <strong>Amount:</strong> RM 99.00
-                        </div>
-                        <label class="block text-xs font-bold text-stone-500 uppercase tracking-wide mb-1">Upload Receipt</label>
-                        <input type="file" id="receiptFile" accept="image/*,.pdf" class="block w-full text-xs text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-stone-100 file:text-stone-700 hover:file:bg-stone-200">
                     </div>
 
                     <!-- Submit -->
                     <div class="pt-2">
-                        <button type="submit" id="submitBtn" class="w-full btn-red py-3.5 rounded-xl font-bold flex justify-center items-center gap-2 shadow-lg">
-                            <span>Complete Order - RM 99</span>
+                        <button type="submit" id="submitBtn" class="w-full btn-red py-3 rounded-xl font-medium flex justify-center items-center gap-2">
+                            <span>Proceed to Payment</span>
                             <i class="ph ph-arrow-right"></i>
                         </button>
-                        <p id="statusMessage" class="text-center text-xs mt-3 text-stone-400"></p>
+                        <p id="statusMessage" class="text-center text-sm mt-3 text-stone-500"></p>
                     </div>
                 </form>
             </div>
@@ -571,113 +509,16 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- 1. Countdown Timer (Ends Jan 28) ---
-            const targetDate = new Date("Jan 28, 2026 11:00:00").getTime();
-            
-            const countdownEl = document.getElementById("countdown");
-            if(countdownEl) {
-                setInterval(function() {
-                    const now = new Date().getTime();
-                    const distance = targetDate - now;
-                    
-                    if (distance < 0) {
-                        countdownEl.innerHTML = "CLOSED";
-                        return;
-                    }
+        // Configuration
+        const CLOUDFLARE_WORKER_URL = "https://flat-haze-25a0.shalomshafa.workers.dev";
+        const CHIP_BRAND_ID = "9dd18261-e178-43a2-8e66-c175e92bfaca"; 
+        const SENDER_EMAIL = "hai@shafiranoh.com"; 
+        const ADMIN_EMAIL = "hai@shafiranoh.com";
+        const TOTAL_AMOUNT = 101.00; // 99 + 2
 
-                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    
-                    countdownEl.innerHTML = days + "d " + hours + "h " + minutes + "m ";
-                }, 1000);
-            }
-
-            // --- Forms ---
-            const sprintForm = document.getElementById('sprintForm');
-            if (sprintForm) {
-                sprintForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    const btn = document.getElementById('submitBtn');
-                    const status = document.getElementById('statusMessage');
-                    
-                    btn.disabled = true;
-                    btn.innerHTML = `<i class="ph ph-spinner animate-spin"></i> Processing...`;
-
-                    if (currentMethod === 'chip') {
-                        processChip(new FormData(this), btn, status);
-                    } else {
-                        processManual(new FormData(this), btn, status);
-                    }
-                });
-            }
-
-            const leadForm = document.getElementById('leadForm');
-            if (leadForm) {
-                leadForm.addEventListener('submit', async function(event) {
-                    event.preventDefault();
-                    const btn = document.getElementById('leadBtn');
-                    const status = document.getElementById('leadStatus');
-                    const emailInput = this.querySelector('input[name="lead_email"]');
-                    
-                    btn.disabled = true;
-                    btn.innerHTML = `<i class="ph ph-spinner animate-spin"></i> Sending...`;
-
-                    const payload = {
-                        action: 'send_email',
-                        user_name: "Deeptech Lead",
-                        user_email: emailInput.value,
-                        total_amount: "Free",
-                        items_purchased: "Lead Magnet: Deeptech Grant Readiness Checklist", // Key trigger string
-                        file_name: null,
-                        file_content: null,
-                        sender_email: CONFIG.SENDER,
-                        admin_email: CONFIG.ADMIN,
-                        email_subject: "Your Deeptech Grant Readiness Checklist"
-                    };
-
-                    try {
-                        const res = await fetch(CONFIG.WORKER, {
-                            method: 'POST',
-                            headers: {'Content-Type': 'application/json'},
-                            body: JSON.stringify(payload)
-                        });
-
-                        const data = await res.json(); 
-
-                        if (res.ok) {
-                            btn.innerHTML = `<i class="ph ph-check"></i> Sent!`;
-                            btn.classList.add('text-green-600', 'border-green-600');
-                            status.innerHTML = `<span class="text-green-600"><strong>Success!</strong> You've been added to the list. Check your inbox immediately.</span>`;
-                            emailInput.value = "";
-                        } else {
-                            console.error("Worker Error Details:", data);
-                            throw new Error(data.error || data.message || 'Server error');
-                        }
-                    } catch (err) {
-                        console.error("Lead Magnet Error:", err);
-                        btn.innerHTML = 'Try Again';
-                        btn.disabled = false;
-                        status.innerText = "Error sending. Please check console for details.";
-                        status.classList.add('text-red-500');
-                    }
-                });
-            }
-        });
-
-        // --- 2. Payment Logic ---
+        // Modal Logic
         const modal = document.getElementById('paymentModal');
-        let currentMethod = 'chip';
-        
-        const CONFIG = {
-            WORKER: "https://flat-haze-25a0.shalomshafa.workers.dev",
-            BRAND_ID: "9dd18261-e178-43a2-8e66-c175e92bfaca",
-            SENDER: "razlan.hamdan@aphelia.space",
-            ADMIN: "hai@shafiranoh.com",
-            AMOUNT: 9900, // 99.00 in cents
-            AMOUNT_TXT: "RM 99.00"
-        };
+        let paymentMethod = 'chip';
 
         function openModal() {
             modal.classList.remove('hidden-modal');
@@ -691,35 +532,73 @@
             document.body.style.overflow = ''; 
         }
 
-        function togglePayment(method) {
-            currentMethod = method;
-            const manualSec = document.getElementById('sectionManual');
-            const receipt = document.getElementById('receiptFile');
-            const btn = document.getElementById('submitBtn');
+        function setPaymentMethod(method) {
+            paymentMethod = method;
+            const btnChip = document.getElementById('btnChip');
+            const btnManual = document.getElementById('btnManual');
+            const secChip = document.getElementById('sectionChip');
+            const secManual = document.getElementById('sectionManual');
+            const submitBtn = document.getElementById('submitBtn');
+            const receiptFile = document.getElementById('receiptFile');
 
-            if (method === 'manual') {
-                manualSec.classList.remove('hidden');
-                receipt.required = true;
-                btn.innerHTML = `<span>Confirm Transfer</span><i class="ph ph-check"></i>`;
+            if (method === 'chip') {
+                btnChip.classList.add('bg-white', 'text-stone-900', 'shadow-sm');
+                btnChip.classList.remove('text-stone-500');
+                btnManual.classList.remove('bg-white', 'text-stone-900', 'shadow-sm');
+                btnManual.classList.add('text-stone-500');
+                
+                secChip.classList.remove('hidden');
+                secManual.classList.add('hidden');
+                submitBtn.innerHTML = '<span>Pay Now with Chip</span><i class="ph ph-credit-card"></i>';
+                receiptFile.required = false;
             } else {
-                manualSec.classList.add('hidden');
-                receipt.required = false;
-                btn.innerHTML = `<span>Complete Order - RM 99</span><i class="ph ph-arrow-right"></i>`;
+                btnManual.classList.add('bg-white', 'text-stone-900', 'shadow-sm');
+                btnManual.classList.remove('text-stone-500');
+                btnChip.classList.remove('bg-white', 'text-stone-900', 'shadow-sm');
+                btnChip.classList.add('text-stone-500');
+
+                secManual.classList.remove('hidden');
+                secChip.classList.add('hidden');
+                submitBtn.innerHTML = '<span>Confirm Transfer</span><i class="ph ph-paper-plane-right"></i>';
+                receiptFile.required = true;
             }
         }
 
-        async function processChip(formData, btn, status) {
+        // Form Handler
+        document.getElementById('sprintForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = '<i class="ph ph-spinner animate-spin"></i> Processing...';
+            btn.disabled = true;
+
+            if (paymentMethod === 'chip') {
+                processChipPayment(this, btn);
+            } else {
+                processManualPayment(this, btn);
+            }
+        });
+
+        async function processChipPayment(form, btn) {
+            const formData = new FormData(form);
+            const status = document.getElementById('statusMessage');
+
+            // Products for Chip (in cents)
+            const products = [
+                { name: "Deeptech Sprint Access", price: 9900, quantity: 1 },
+                { name: "Processing Fee", price: 200, quantity: 1 }
+            ];
+
             const payload = {
                 action: 'create_payment',
-                brand_id: CONFIG.BRAND_ID,
+                brand_id: CHIP_BRAND_ID,
                 client: {
                     email: formData.get('user_email'),
                     full_name: formData.get('user_name'),
-                    phone: formData.get('user_phone')
+                    phone: formData.get('user_phone') || undefined
                 },
                 purchase: {
                     currency: "MYR",
-                    products: [{ name: "Deeptech Strategy Sprint", price: CONFIG.AMOUNT, quantity: 1 }],
+                    products: products,
                     timezone: "Asia/Kuala_Lumpur"
                 },
                 success_redirect: "https://webdevsha.github.io/atlas/success.html",
@@ -727,70 +606,95 @@
             };
 
             try {
-                const res = await fetch(CONFIG.WORKER, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
+                const response = await fetch(CLOUDFLARE_WORKER_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
                 });
-                const data = await res.json();
-                if (res.ok && data.checkout_url) window.location.href = data.checkout_url;
-                else throw new Error(data.message || 'Payment init failed');
-            } catch (err) {
-                console.error(err);
-                btn.disabled = false;
+
+                const data = await response.json();
+
+                if (response.ok && data.checkout_url) {
+                    window.location.href = data.checkout_url;
+                } else {
+                    throw new Error(data.message || "Failed to create payment link");
+                }
+            } catch (error) {
+                console.error("Payment Error:", error);
                 btn.innerHTML = 'Try Again';
-                status.innerText = "Payment failed. Please try manual transfer.";
-                status.className = "text-center text-xs mt-3 text-red-500";
+                btn.disabled = false;
+                status.innerText = "Connection failed. Please try manual transfer.";
+                status.classList.add('text-red-600');
             }
         }
 
-        async function processManual(formData, btn, status) {
+        async function processManualPayment(form, btn) {
+            const formData = new FormData(form);
+            const status = document.getElementById('statusMessage');
             const file = document.getElementById('receiptFile').files[0];
-            
-            if (!file || file.size > 2 * 1024 * 1024) {
-                btn.disabled = false;
-                btn.innerHTML = 'File Error';
-                status.innerText = "Please upload a receipt under 2MB.";
-                status.className = "text-center text-xs mt-3 text-red-500";
-                return;
-            }
+            const itemsPurchased = "Deeptech Sprint Access + Processing Fee";
 
-            const reader = new FileReader();
-            reader.onload = async () => {
+            const sendToWorker = async (cleanBase64 = null, fileName = null) => {
                 const payload = {
                     action: 'send_email',
                     user_name: formData.get('user_name'),
                     user_email: formData.get('user_email'),
-                    total_amount: CONFIG.AMOUNT_TXT,
-                    items_purchased: "Deeptech Strategy Sprint (Early Bird)",
-                    file_name: file.name,
-                    file_content: reader.result.split(',')[1],
-                    sender_email: CONFIG.SENDER,
-                    admin_email: CONFIG.ADMIN,
-                    email_subject: "Payment Receipt: Deeptech Sprint"
+                    total_amount: `RM ${TOTAL_AMOUNT}`,
+                    items_purchased: itemsPurchased,
+                    file_name: fileName,
+                    file_content: cleanBase64,
+                    sender_email: SENDER_EMAIL,
+                    admin_email: ADMIN_EMAIL
                 };
 
                 try {
-                    const res = await fetch(CONFIG.WORKER, {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
+                    const response = await fetch(CLOUDFLARE_WORKER_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(payload)
                     });
-                    if (res.ok) {
-                        btn.innerHTML = 'Success!';
-                        btn.classList.replace('btn-red', 'bg-green-600');
-                        status.innerText = "Receipt received! Check your email.";
-                        status.className = "text-center text-xs mt-3 text-green-600";
-                        setTimeout(() => closeModal(), 2000);
-                    } else throw new Error('Worker failed');
-                } catch (err) {
-                    btn.disabled = false;
+
+                    if (response.ok) {
+                        btn.innerHTML = '<i class="ph ph-check"></i> Success!';
+                        btn.classList.remove('btn-red');
+                        btn.classList.add('bg-green-600', 'text-white');
+                        status.innerText = "Receipt received. Confirmation sent to email.";
+                        status.className = "text-center text-sm mt-3 text-green-600";
+                        setTimeout(() => {
+                            closeModal();
+                            form.reset();
+                            btn.disabled = false;
+                            btn.innerHTML = 'Proceed to Payment';
+                            btn.classList.remove('bg-green-600');
+                            btn.classList.add('btn-red');
+                            status.innerText = "";
+                        }, 3000);
+                    } else {
+                        throw new Error("Email worker failed");
+                    }
+                } catch (error) {
                     btn.innerHTML = 'Try Again';
-                    status.innerText = "Error uploading receipt.";
-                    status.className = "text-center text-xs mt-3 text-red-500";
+                    btn.disabled = false;
+                    status.innerText = "Error sending receipt. Check file size.";
+                    status.className = "text-center text-sm mt-3 text-red-600";
                 }
             };
-            reader.readAsDataURL(file);
+
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    btn.innerHTML = 'File Too Large';
+                    btn.disabled = false;
+                    status.innerText = "File > 2MB. Please compress.";
+                    status.className = "text-center text-sm mt-3 text-red-600";
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = () => sendToWorker(reader.result.split(',')[1], file.name);
+                reader.onerror = () => sendToWorker(null, null);
+                reader.readAsDataURL(file);
+            } else {
+                sendToWorker(null, null);
+            }
         }
     </script>
 </body>
