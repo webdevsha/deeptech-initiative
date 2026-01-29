@@ -6,19 +6,19 @@
     <title>Deeptech Sprint: From Idea to Grant Funding | 1-Hour Intensive</title>
     
     <!-- SEO & Social Meta Tags -->
-    <meta name="description" content="Learn to map your innovation to grant funding & tractions, validate tech moats, and prioritize your MVP. Join the Sprint for RM 99.">
+    <meta name="description" content="Learn to map your innovation to grant funding & tractions, validate tech moats, and prioritize your MVP. Join the Sprint for RM 299.">
     <meta name="keywords" content="Deeptech Workshop, Grant Funding, Tech Moat, MVP Prioritization, STEM Commercialization, Deeptech Initiative">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Deeptech Sprint: From Idea to Grant Funding">
-    <meta property="og:description" content="Learn to map your innovation to grant funding & tractions, validate tech moats, and prioritize your MVP. Join the Sprint for RM 99.">
+    <meta property="og:description" content="Learn to map your innovation to grant funding & tractions, validate tech moats, and prioritize your MVP. Join the Sprint for RM 299.">
     <meta property="og:image" content="https://ik.imagekit.io/cbctech/Deeptech.png?updatedAt=1768975439614">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Deeptech Sprint: From Idea to Grant Funding">
-    <meta name="twitter:description" content="Learn to map your innovation to grant funding & tractions, validate tech moats, and prioritize your MVP. Join the Sprint for RM 99.">
+    <meta name="twitter:description" content="Learn to map your innovation to grant funding & tractions, validate tech moats, and prioritize your MVP. Join the Sprint for RM 299.">
     <meta name="twitter:image" content="https://ik.imagekit.io/cbctech/Deeptech.png?updatedAt=1768975439614">
 
     <!-- Favicon -->
@@ -120,6 +120,23 @@
             transform: scale(1) translateY(0);
         }
 
+        /* Accordion Transitions for FAQ */
+        .accordion-content {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-open .accordion-content {
+            opacity: 1;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-open .accordion-icon {
+            transform: rotate(180deg);
+        }
+
         /* Countdown Animation */
         @keyframes pulse-red {
             0%, 100% { color: #D93025; }
@@ -168,7 +185,7 @@
         <div class="flex flex-col items-center gap-6">
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
                 <button onclick="openModal()" class="btn-red px-10 py-4 rounded-lg text-lg font-medium shadow-xl w-full sm:w-auto relative overflow-hidden group">
-                    <span class="relative z-10">Join the Sprint - RM 99</span>
+                    <span class="relative z-10">Join the Sprint - RM 299</span>
                     <div class="absolute inset-0 bg-white/10 transform -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
                 </button>
                 <div class="text-left">
@@ -179,20 +196,20 @@
             <!-- Countdown Timer Block -->
             <div class="bg-red-50 border border-red-100 p-4 rounded-xl max-w-sm w-full animate-fade-in-up">
                 <div class="flex items-center justify-between mb-1">
-                    <span class="text-xs font-bold text-red-800 uppercase tracking-widest">Early Bird Ends In</span>
+                    <span class="text-xs font-bold text-red-800 uppercase tracking-widest">Registration Closes In</span>
                     <i class="ph ph-clock text-red-600 animate-pulse-red"></i>
                 </div>
                 <div id="countdown" class="text-2xl font-mono font-bold text-stone-900 tracking-tight">
                     00d 00h 00m 00s
                 </div>
                 <p class="text-[11px] text-stone-500 mt-2 border-t border-red-200 pt-2">
-                    Price increases to <span class="font-bold text-stone-900">RM 299</span> after <span class="font-bold text-stone-900">Jan 28th, 2026</span>.
+                    Standard Price: <span class="font-bold text-stone-900">RM 299</span>. Session starts <span class="font-bold text-stone-900">Jan 31st</span>.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- NEW SECTION: Brands/Works With -->
+    <!-- Brands/Works With -->
     <section class="py-12 bg-white border-t border-stone-200">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <p class="text-xs font-bold text-stone-400 uppercase tracking-widest mb-8">
@@ -279,7 +296,7 @@
         </div>
     </section>
 
-    <!-- The Curriculum (UPDATED AGENDA) -->
+    <!-- The Curriculum -->
     <section class="py-20 px-6 bg-white border-y border-stone-200">
         <div class="max-w-5xl mx-auto">
             <div class="grid md:grid-cols-2 gap-16 items-start">
@@ -342,7 +359,7 @@
         </div>
     </section>
 
-    <!-- Instructor Section (UPDATED) -->
+    <!-- Instructor Section -->
     <section class="py-20 px-6 bg-stone-50 border-t border-stone-200">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl text-stone-900 mb-12 text-center">Meet Your Instructor</h2>
@@ -448,20 +465,85 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="py-20 px-6 bg-white border-t border-stone-200">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl text-center text-stone-900 mb-12">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-stone-200 rounded-xl overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-6 bg-stone-50 hover:bg-red-50 transition-colors text-left" onclick="toggleAccordion(1)">
+                        <span class="font-medium text-stone-900">Is this suitable for pure software/SaaS startups?</span>
+                        <i id="icon-1" class="ph ph-caret-down text-stone-500 accordion-icon"></i>
+                    </button>
+                    <div id="content-1" class="accordion-content">
+                        <div class="p-6 pt-0 text-sm text-stone-600 leading-relaxed bg-stone-50">
+                            <div class="h-px w-full bg-stone-200 mb-4"></div>
+                            This sprint is optimized for "hard tech"—startups involving hardware, advanced materials, biotech, or significant engineering risk. While the business principles apply to SaaS, the examples used (regulation, physics constraints, supply chain) are tailored for deeptech founders.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-stone-200 rounded-xl overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-6 bg-stone-50 hover:bg-red-50 transition-colors text-left" onclick="toggleAccordion(2)">
+                        <span class="font-medium text-stone-900">Will I receive the recording if I cannot attend live?</span>
+                        <i id="icon-2" class="ph ph-caret-down text-stone-500 accordion-icon"></i>
+                    </button>
+                    <div id="content-2" class="accordion-content">
+                        <div class="p-6 pt-0 text-sm text-stone-600 leading-relaxed bg-stone-50">
+                            <div class="h-px w-full bg-stone-200 mb-4"></div>
+                            Yes, all registered participants will receive a high-definition recording and the slide deck within 24 hours of the event. However, live attendance is highly recommended for the Q&A session.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-stone-200 rounded-xl overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-6 bg-stone-50 hover:bg-red-50 transition-colors text-left" onclick="toggleAccordion(3)">
+                        <span class="font-medium text-stone-900">I am an undergraduate, how to ask for discount?</span>
+                        <i id="icon-3" class="ph ph-caret-down text-stone-500 accordion-icon"></i>
+                    </button>
+                    <div id="content-3" class="accordion-content">
+                        <div class="p-6 pt-0 text-sm text-stone-600 leading-relaxed bg-stone-50">
+                            <div class="h-px w-full bg-stone-200 mb-4"></div>
+                            We love agency in young people, so yes, please email me directly: razlan.hamdan@aphelia.space
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-stone-200 rounded-xl overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-6 bg-stone-50 hover:bg-red-50 transition-colors text-left" onclick="toggleAccordion(4)">
+                        <span class="font-medium text-stone-900">Does this guarantee I will get the grant?</span>
+                        <i id="icon-4" class="ph ph-caret-down text-stone-500 accordion-icon"></i>
+                    </button>
+                    <div id="content-4" class="accordion-content">
+                        <div class="p-6 pt-0 text-sm text-stone-600 leading-relaxed bg-stone-50">
+                            <div class="h-px w-full bg-stone-200 mb-4"></div>
+                            No advisory can guarantee funding. However, we provide the methodology to remove the "Red Flags" that cause 90% of rejections. We focus on ensuring your technical narrative aligns with what grant auditors are mandated to fund.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <footer class="py-12 px-6 text-center border-t border-stone-200 bg-white">
         <h2 class="text-3xl font-serif text-stone-900 mb-6">Build. Validate. Fund.</h2>
         <div class="max-w-md mx-auto mb-8">
             <div class="bg-red-50 text-red-800 px-4 py-2 rounded-lg text-sm font-medium mb-4 inline-block">
-                Early Bird Pricing Ends Jan 28th
+                Limited Seats Remaining
             </div>
             <button onclick="openModal()" class="btn-red w-full px-12 py-4 rounded-full text-lg font-medium shadow-lg hover:shadow-xl">
-                Secure Your Sprint Seat (RM 99)
+                Secure Your Sprint Seat (RM 299)
             </button>
         </div>
         <div class="flex justify-center gap-6 text-xs text-stone-400">
             <span>&copy; 2026 Deeptech Initiative</span>
-            <a href="mailto:hello@atlasnovus.co" class="hover:text-red-600 transition-colors">Contact Support</a>
+            <a href="mailto:razlan.hamdan@aphelia.space" class="hover:text-red-600 transition-colors">Contact Support</a>
         </div>
     </footer>
 
@@ -479,10 +561,10 @@
 
             <div class="p-6">
                 <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-3 mb-6 flex items-start gap-3">
-                    <i class="ph ph-clock text-yellow-600 mt-1"></i>
+                    <i class="ph ph-ticket text-yellow-600 mt-1"></i>
                     <div>
-                        <p class="text-xs font-bold text-yellow-800">Early Bird Offer Active</p>
-                        <p class="text-xs text-yellow-700">Price increases to RM 299 on Jan 28, 2026. Lock in RM 99 now.</p>
+                        <p class="text-xs font-bold text-yellow-800">Standard Ticket</p>
+                        <p class="text-xs text-yellow-700">Early bird has ended. You are purchasing a standard access pass.</p>
                     </div>
                 </div>
 
@@ -498,8 +580,7 @@
                                     <div class="text-xs text-red-700">1-Hour Intensive • Live Session</div>
                                 </div>
                                 <div class="text-right">
-                                    <div class="text-xs text-red-400 line-through">RM 299</div>
-                                    <div class="font-bold text-red-900">RM 99.00</div>
+                                    <div class="font-bold text-red-900">RM 299.00</div>
                                 </div>
                             </div>
                         </div>
@@ -513,7 +594,7 @@
                     <!-- Total -->
                     <div class="flex justify-between items-center border-t border-b border-stone-100 py-4">
                         <span class="text-stone-600 font-medium">Total Payable</span>
-                        <span class="text-3xl font-bold text-stone-900 tracking-tight font-serif">RM 101</span>
+                        <span class="text-3xl font-bold text-stone-900 tracking-tight font-serif">RM 301</span>
                     </div>
                     
                     <!-- Method Toggle -->
@@ -526,7 +607,7 @@
                              <button type="button" onclick="setPaymentMethod('manual')" id="btnManual" class="flex-1 py-2 text-sm font-medium rounded-lg text-stone-500 hover:text-stone-900 transition-all">
                                  Manual Transfer
                              </button>
-                         </div>
+                          </div>
                     </div>
 
                     <!-- Chip Section -->
@@ -597,19 +678,42 @@
         const CHIP_BRAND_ID = "9dd18261-e178-43a2-8e66-c175e92bfaca"; 
         const SENDER_EMAIL = "hai@shafiranoh.com"; 
         const ADMIN_EMAIL = "hai@shafiranoh.com";
-        const TOTAL_AMOUNT = 101.00; // 99 + 2
+        const TOTAL_AMOUNT = 301.00; // 299 + 2
+
+        // Accordion Logic for FAQs
+        function toggleAccordion(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            const parent = content.parentElement;
+            
+            // Close others (optional, keeps it clean)
+            document.querySelectorAll('.accordion-content').forEach(el => {
+                if (el.id !== `content-${id}`) {
+                    el.style.maxHeight = '0px';
+                    el.parentElement.classList.remove('accordion-open');
+                }
+            });
+
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                parent.classList.remove('accordion-open');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                parent.classList.add('accordion-open');
+            }
+        }
 
         // Countdown Logic
         function updateCountdown() {
-            // Target date: Jan 28, 2026 23:59:59
-            const deadline = new Date("January 28, 2026 23:59:59").getTime();
+            // Target date: Event Start - Jan 31, 2026 11:00:00
+            const deadline = new Date("January 31, 2026 11:00:00").getTime();
             const now = new Date().getTime();
             const t = deadline - now;
 
             const countdownEl = document.getElementById("countdown");
 
             if (t < 0) {
-                countdownEl.innerHTML = "OFFER EXPIRED";
+                countdownEl.innerHTML = "REGISTRATION CLOSED";
                 countdownEl.classList.add("text-red-600");
                 return;
             }
@@ -700,7 +804,7 @@
 
             // Products for Chip (in cents)
             const products = [
-                { name: "Deeptech Sprint Access", price: 9900, quantity: 1 },
+                { name: "Deeptech Sprint Access", price: 29900, quantity: 1 },
                 { name: "Processing Fee", price: 200, quantity: 1 }
             ];
 
@@ -717,8 +821,8 @@
                     products: products,
                     timezone: "Asia/Kuala_Lumpur"
                 },
-                success_redirect: "https://webdevsha.github.io/atlas/success.html",
-                failure_redirect: "https://webdevsha.github.io/atlas/failed.html"
+                success_redirect: "https://webdevsha.github.io/deeptech-initiative/success.html",
+                failure_redirect: "https://webdevsha.github.io/deeptech-initiative/fail.html"
             };
 
             try {
