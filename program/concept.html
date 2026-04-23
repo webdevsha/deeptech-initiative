@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Canvas | Reflective Industrious</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --crimson: #A01D22;
+            --cream: #FDFBF4;
+            --black: #1A1A1A;
+            --border: #E5E1D8;
+            --charcoal: #2D2D2D;
+        }
+
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--black);
+            line-height: 1.5;
+        }
+
+        .serif { font-family: 'Playfair Display', serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; }
+        
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(300px, auto);
+            gap: 1px;
+            background-color: var(--black);
+            border: 2px solid var(--black);
+        }
+
+        .canvas-box {
+            background-color: white;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--crimson);
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--crimson);
+            padding-bottom: 0.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .research-tag {
+            background-color: var(--cream);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .content-body { font-size: 0.8rem; color: #333; }
+        .citation { color: var(--crimson); font-weight: 600; font-style: italic; }
+
+        .bg-crimson-subtle { background-color: #fff5f5; }
+        .highlight { border-left: 3px solid var(--crimson); padding-left: 0.75rem; margin: 0.5rem 0; }
+
+        /* Theory of Change Styling */
+        .toc-node {
+            border: 1px solid var(--black);
+            padding: 0.85rem;
+            background: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        .metric-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--crimson);
+            font-weight: 700;
+            display: block;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            border-top: 1px dashed rgba(160, 29, 34, 0.2);
+            padding-top: 0.4rem;
+        }
+        
+        .arrow-right::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--crimson);
+            font-weight: bold;
+        }
+
+        .track-badge {
+            font-size: 0.55rem;
+            font-weight: 800;
+            padding: 1px 4px;
+            border: 1px solid currentColor;
+            border-radius: 2px;
+            margin-right: 4px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 1024px) {
+            .canvas-grid { grid-template-columns: 1fr 1fr; }
+            .arrow-right::after { display: none; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- Header & Mission -->
+    <div class="max-w-[1600px] mx-auto mb-8 border-b-4 border-black pb-6 flex flex-col md:flex-row justify-between items-end gap-4">
+        <div>
+            <h1 class="serif text-5xl mb-2 italic">Reflective <span class="text-crimson">Industrious</span></h1>
+            <p class="mono uppercase tracking-widest text-black/60">Internal Strategic Canvas v1.8 // Unified Multi-Track Theory of Change</p>
+        </div>
+        <div class="max-w-md text-right">
+            <div class="text-xs font-bold text-crimson uppercase tracking-tighter mb-1">Operating Logic: Amal Jariyah</div>
+            <p class="text-sm italic font-medium">Knowledge as living infrastructure—not extraction, but circulation.</p>
+        </div>
+    </div>
+
+    <!-- 2. Theory of Change Section -->
+    <section class="max-w-[1600px] mx-auto mb-16">
+        <div class="bg-black text-white p-8 rounded-sm mb-1">
+            <h2 class="serif text-3xl italic text-crimson mb-6">Theory of Change: Multi-Track Alignment</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                
+                <!-- Column 1: Grounding -->
+                <div>
+                    <h3 class="mono text-xs uppercase tracking-widest text-crimson mb-4 font-bold">1. Problem Grounding</h3>
+                    <div class="space-y-4 text-[11px] text-white/70 leading-relaxed">
+                        <p><strong class="text-white">Industrial Decoupling:</strong> As <span class="citation text-crimson">Pisano & Shih (2012)</span> warn, decoupling design (thinking) from production (making) erodes national capacity. Malaysia lacks a bridge for reflective industrialization.</p>
+                        <p><strong class="text-white">Normative Blindness:</strong> Western tech frameworks are often "extractive" (e.g., Swiss "Sustainable AI" obscuring Global South mining). We need contextual ijtihad to center <span class="italic">amanah</span> in our tech ambitions.</p>
+                    </div>
+                </div>
+
+                <!-- Column 2: Outputs -->
+                <div class="arrow-right">
+                    <h3 class="mono text-xs uppercase tracking-widest text-crimson mb-4 font-bold">2. Strategic Outputs</h3>
+                    <div class="toc-node text-black">
+                        <span class="mono text-[10px] font-bold text-crimson">FORMAT ARCHITECTURE</span>
+                        <p class="text-[12px] font-bold mt-1 uppercase">75-Min Learning Lab</p>
+                        <p class="text-[10px] opacity-70 mt-1">2-Round Core Conversation + Floor Reflections. High social safety + productive struggle.</p>
+                        <span class="metric-label">Tracking: Participation Density • Curation NPS • Knowledge Transfer</span>
+                    </div>
+                </div>
+
+                <!-- Column 3: Outcomes (Multi-Track Leveled) -->
+                <div class="arrow-right">
+                    <h3 class="mono text-xs uppercase tracking-widest text-crimson mb-4 font-bold">3. Leveled Outcomes</h3>
+                    <div class="space-y-2">
+                        <!-- Level 1 -->
+                        <div class="toc-node text-black p-3 bg-white">
+                            <p class="text-[10px] font-black uppercase text-crimson border-b border-crimson/10 mb-2">L1: Awareness Shift</p>
+                            <ul class="text-[9px] space-y-1">
+                                <li><span class="track-badge text-blue-600">Problem</span> Identifying "Extractive Logic" in tech.</li>
+                                <li><span class="track-badge text-green-600">Career</span> Labs (Aphelia & Ceta) seen as reflective nodes.</li>
+                                <li><span class="track-badge text-purple-600">Industry</span> Questioning imported "catch-up" frames.</li>
+                            </ul>
+                        </div>
+                        <!-- Level 2 -->
+                        <div class="toc-node text-black p-3 bg-crimson-subtle">
+                            <p class="text-[10px] font-black uppercase text-crimson border-b border-crimson/10 mb-2">L2: Behavioral Shifts</p>
+                            <ul class="text-[9px] space-y-1">
+                                <li><span class="track-badge text-blue-600">Problem</span> Threshold concepts integrated into planning.</li>
+                                <li><span class="track-badge text-purple-600">Industry</span> Cross-domain "Weak Ties" driving local R&D.</li>
+                                <li><span class="track-badge text-green-600">Career</span> Direct influence on industry-ethics standards.</li>
+                            </ul>
+                        </div>
+                        <!-- Level 3 -->
+                        <div class="toc-node text-black p-3 bg-gray-100">
+                            <p class="text-[10px] font-black uppercase text-crimson border-b border-crimson/10 mb-2">L3: Generative Power</p>
+                            <ul class="text-[9px] space-y-1">
+                                <li><span class="track-badge text-orange-600">Community</span> Self-sustaining "Reflectors" leading spin-offs.</li>
+                                <li><span class="track-badge text-blue-600">Problem</span> Reduction in blind adoption of harmful tech.</li>
+                                <li><span class="track-badge text-green-600">Career</span> Authorship of national technical-ethical protocols.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 4: Vision -->
+                <div>
+                    <h3 class="mono text-xs uppercase tracking-widest text-crimson mb-4 font-bold">4. Ultimate Vision</h3>
+                    <div class="toc-node text-black bg-white border-crimson p-6 h-full flex flex-col justify-center border-t-8 border-t-crimson shadow-lg">
+                        <p class="serif italic text-2xl mb-3 text-crimson text-center">Amal Jariyah Society</p>
+                        <p class="text-[11px] text-charcoal font-medium leading-relaxed">
+                            A self-sustaining infrastructure for <strong class="uppercase font-bold">Reflective Industriousness</strong>—where technical excellence is integrated as a civilizational trust (Amanah).
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-black/10">
+                            <p class="mono text-[10px] text-crimson font-bold uppercase mb-2">Strategic Metrics:</p>
+                            <div class="space-y-2 text-[9px] font-bold text-charcoal">
+                                <p>• <span class="opacity-60 uppercase text-[8px]">Internal:</span> Sincerity of circulation (Barakah)</p>
+                                <p>• <span class="opacity-60 uppercase text-[8px]">Industry:</span> Local "Thinker-Maker" standards established</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-crimson h-1 w-full"></div>
+    </section>
+
+    <!-- EXPERIENCE ARCHITECTURE (Grids 1 & 2) -->
+    <div class="max-w-[1600px] mx-auto canvas-grid shadow-2xl mb-12">
+        
+        <!-- 8. Detailed Event Tentative (Refined for 75-80 Mins) -->
+        <div class="canvas-box col-span-2">
+            <div class="box-title">
+                8. 75-Min Event Lab Architecture
+                <span class="research-tag">Experiential Learning Cycle</span>
+            </div>
+            <div class="content-body">
+                <div class="grid grid-cols-5 gap-2 mono text-[9px] font-bold text-crimson uppercase mb-4 text-center">
+                    <div class="p-2 bg-black text-white rounded">Ritual/Dilemma</div>
+                    <div class="p-2 border border-black/10">Round 1: Core</div>
+                    <div class="p-2 border border-black/10">Round 1: Floor</div>
+                    <div class="p-2 border border-black/10">Round 2: Core</div>
+                    <div class="p-2 border border-black/10">Floor/Closing</div>
+                </div>
+                
+                <div class="space-y-3 text-[10px]">
+                    <div class="flex gap-4 border-b border-black/5 pb-2">
+                        <div class="w-20 font-bold text-crimson">00-05 MIN</div>
+                        <div class="flex-1">
+                            <strong>Ritual Opening:</strong> Intro (20s each) + <strong>Productive Failure</strong> setup: Pose the threshold dilemma BEFORE expert input. <span class="citation text-crimson">(Kapur, 2008)</span>.
+                        </div>
+                    </div>
+                    <div class="flex gap-4 bg-gray-50 p-2 rounded">
+                        <div class="w-20 font-bold text-crimson">05-30 MIN</div>
+                        <div class="flex-1">
+                            <strong>Round 1 Core (25m):</strong> Speaker 1 (Technical) + Initial Case Study. High <em>germane load</em> focus. Participants use Kit templates to map friction.
+                        </div>
+                    </div>
+                    <div class="flex gap-4 border-b border-black/5 pb-2">
+                        <div class="w-20 font-bold text-crimson">30-45 MIN</div>
+                        <div class="flex-1">
+                            <strong>Round 1 Floor (15m):</strong> <strong>Volunteer Reflector 1</strong> models "noticing" surpises/unresolved friction. Liberating Structures: 1-2-4-All (1m silent → 2m pairs → floor).
+                        </div>
+                    </div>
+                    <div class="flex gap-4 bg-gray-50 p-2 rounded">
+                        <div class="w-20 font-bold text-crimson">45-70 MIN</div>
+                        <div class="flex-1">
+                            <strong>Round 2 Core (25m):</strong> Speaker 2 (Reflective/Ethical) + Contextual Analysis. Deepening the "Threshold Concept" <span class="citation text-crimson">(Meyer & Land, 2003)</span>.
+                        </div>
+                    </div>
+                    <div class="flex gap-4 border-b border-black/5 pb-2">
+                        <div class="w-20 font-bold text-crimson">70-75 MIN</div>
+                        <div class="flex-1">
+                            <strong>Final Floor & Closing (15m):</strong> <strong>Reflector 2</strong> models take-home questions. Closing Ritual: "One word for what I'm taking home." 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. Volunteer Reflectors -->
+        <div class="canvas-box col-span-1">
+            <div class="box-title">
+                10. Metacognitive Modeling
+                <span class="research-tag">Reflectors</span>
+            </div>
+            <div class="content-body space-y-4">
+                <p class="text-[10px] font-bold text-crimson uppercase">Legitimate Peripheral Participation</p>
+                <p class="text-[9px]">Peer modeling of reflection is more effective than expert modeling <span class="citation text-crimson">(Boud et al. 2013)</span>.</p>
+                
+                <div class="space-y-2">
+                    <div class="p-2 border-l-4 border-crimson bg-gray-50">
+                        <p class="text-[10px] font-bold uppercase">Moment 1 (30m Floor)</p>
+                        <p class="text-[9px] italic">"I realized I assumed X, but the case suggests Y. I'm sitting with..."</p>
+                    </div>
+                    <div class="p-2 border-l-4 border-crimson bg-gray-50">
+                        <p class="text-[10px] font-bold uppercase">Moment 2 (Closing)</p>
+                        <p class="text-[9px] italic">"The threshold I crossed tonight was X. My next move is Y..."</p>
+                    </div>
+                </div>
+                <p class="text-[8px] opacity-60">Volunteers recruit at registration; provided "Noticing Guide" 1 week prior.</p>
+            </div>
+        </div>
+
+        <!-- 9. The Hybrid Kit -->
+        <div class="canvas-box col-span-1 bg-crimson-subtle">
+            <div class="box-title">
+                9. The Hybrid Kit
+                <span class="research-tag">Extension Artifact</span>
+            </div>
+            <div class="content-body space-y-3 text-[10px]">
+                <p><strong>Analog for Depth, Digital for Connection.</strong></p>
+                <div class="p-2 bg-white border border-crimson/20 rounded-md">
+                    <p class="font-bold text-[9px] uppercase border-b border-crimson/10 mb-2">Kit Components</p>
+                    <ul class="text-[8px] space-y-1">
+                        <li>• <strong>Prompts:</strong> Cardstock (Brookfield's 4 lenses).</li>
+                        <li>• <strong>Map:</strong> Concept map for schema-building.</li>
+                        <li>• <strong>Challenge:</strong> "Apply This Week" Card.</li>
+                        <li>• <strong>Resources:</strong> Curated (Schwartz 2004).</li>
+                    </ul>
+                </div>
+                <p><strong>Spaced Reactivation:</strong> QR link to async community space for 7-day reminders & peer dialogue. <span class="citation text-crimson">(Cepeda et al. 2006)</span>.</p>
+            </div>
+        </div>
+
+        <!-- 11. Rituals & Failure -->
+        <div class="canvas-box col-span-2">
+            <div class="box-title">
+                11. Ritual & Failure Design
+                <span class="research-tag">Meaning & Memory</span>
+            </div>
+            <div class="content-body grid grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <p class="font-bold text-crimson text-[10px] uppercase">Ritual Structure (Ozenc 2020)</p>
+                    <p class="text-[9px]">Opening intro (20s) sets belonging. Transition silence (60s) breaks passive reception. Closing witness validates the learning community.</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="font-bold text-crimson text-[10px] uppercase">Productive Failure (Kapur 2008)</p>
+                    <p class="text-[9px]">Struggling with the threshold dilemma <strong>before</strong> receiving input creates the knowledge gap for the input to fill.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. Design Load -->
+        <div class="canvas-box col-span-2">
+            <div class="box-title">
+                12. Design Load & Responsiveness
+                <span class="research-tag">Cognitive Load</span>
+            </div>
+            <div class="content-body space-y-3">
+                <div class="grid grid-cols-3 gap-3 mono text-[9px]">
+                    <div class="p-2 border border-black/10 text-center rounded">
+                        <span class="font-bold block text-crimson">Intrinsic Load</span>
+                        Threshold Content (Deep Tech x Ethics)
+                    </div>
+                    <div class="p-2 border border-black/10 text-center rounded">
+                        <span class="font-bold block text-crimson">Extraneous Reduced</span>
+                        Approachable Branding/Ritual Flow
+                    </div>
+                    <div class="p-2 border border-black/10 text-center rounded">
+                        <span class="font-bold block text-crimson">Germane Increased</span>
+                        Fusion Synthesis via Map/Modeling
+                    </div>
+                </div>
+                <p class="text-[9px] italic opacity-70">
+                    <strong>Responsive Teaching:</strong> Cold Call (Warm), Turn & Talk (90s), and "Show of Hands + Follow-up" keep participants doing the thinking. <span class="citation text-crimson">(Lemov, 2015)</span>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Synthesis Footer -->
+    <div class="max-w-[1600px] mx-auto mt-8 grid md:grid-cols-3 gap-8 p-8 bg-black text-white rounded-sm">
+        <div class="space-y-3">
+            <h5 class="serif italic text-crimson text-xl">The Hybrid Infrastructure</h5>
+            <p class="text-xs opacity-80 leading-relaxed">
+                Fusing <strong>Critical Pedagogy</strong>, <strong>Communities of Practice</strong>, and <strong>Islamic Knowledge Ethics</strong>. Adapting the early RSA or Chautauqua models for the contemporary Malaysian urgency.
+            </p>
+        </div>
+        <div class="space-y-3">
+            <h5 class="serif italic text-crimson text-xl">Operating Logic</h5>
+            <div class="text-[10px] opacity-80 space-y-2 italic">
+                <p>"Not inventing from scratch—adapting robust models to a specific gap with a specific ethic: Amal Jariyah, not profit maximization. We are co-learners, not delivery experts."</p>
+            </div>
+        </div>
+        <div class="space-y-3">
+            <h5 class="serif italic text-crimson text-xl">Event 1: Reaching Beyond</h5>
+            <p class="text-xs opacity-80 leading-relaxed uppercase font-bold tracking-tighter">
+                Focus: Space Ambition vs. Western Narratives.<br>
+                Threshold Concept: "Tech isn't neutral—it's inherently normative."
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center mt-12 mb-8">
+        <p class="mono text-[10px] uppercase opacity-40">Internal Reference Only • DeepTech Initiative • Strategic Canvas v1.8 • April 2026</p>
+    </div>
+
+</body>
+</html>
